@@ -6,7 +6,7 @@ export default function Signup(){
             <title>Sign Up</title>
 
             <div className="bg-blue-950 grid lg:grid-cols-2 h-screen">  
-                <div className='flex items-center'>
+                <div className='m-auto'>
                     <Image src="/spots.png"
                     width={735} height={691} priority/>
                 </div>
