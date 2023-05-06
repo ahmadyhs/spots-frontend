@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-export default function login() {
+export default function Login() {
     return (
       <body class="max-h-screen">
         <title>Login</title>
