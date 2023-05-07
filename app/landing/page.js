@@ -1,23 +1,20 @@
 import Image from 'next/image'
-import { Navbar } from '../Navbar';
+import { Navbar } from '../Navbar'
+import Footer from "../Footer";
+;
 
 export default function landing() {
     return (
-    <main className="flex w-full flex-col items-center justify-between p-24">
+    <main className=" flex w-full flex-col items-center justify-between p-24">
                  <Navbar />
                  <section>
-                 <div class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer">
+                 <div class="max-h-screen w- srelative overflow-hidden rounded-lg shadow-lg cursor-pointer">
                  <Image
-                className="rounded-2xl"
-                src="/login.jpg"
+                className="mx-auto scale-100"
+                src="/TXT.png"
                 width={1225}
             height={420}
                 />
-                	<div class="absolute top-14 left-14 px-6 py-4">
-                 <h1 class="absolute text-5xl text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                    Spots Website Layanan Coworking Space
-                 </h1>
-                </div>
                 </div>
                 </section>
                  <section class="bg-[#19E8E0] border-b py-8">
@@ -66,17 +63,13 @@ export default function landing() {
         </div>
       </div>
     </section>
-    <section class="bg-[#FFFFFF] border-b py-8" >
-    <div class="container mx-auto flex flex-wrap pt-4 pb-12">
-    <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
-              <div class="w-full font-bold text-xl text-[#027FFF]-800 px-6">
-                Lorem ipsum dolor sit amet.
-              </div>
-              <p class="text-gray-800 text-base px-6 mb-5">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.
-              </p>
-              <div class="mb-3">
+    <section class="bg-white-50 dark:bg-white-800">
+        <div class="max-w-screen-xl px-4 py-8 mx-auto space-y-12 lg:space-y-20 lg:py-24 lg:px-6">
+            <div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
+                <div class="text-gray-500 sm:text-lg dark:text-gray-400">
+                    <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-[#027FFF] ">Cari Coworking Space Sesuai Kebutuhanmu!</h2>
+                    <p class="mb-8 font-light lg:text-xl">Kami menghubungkanmu kepada penyedia Coworking Space terbaik hanya dengan jentikan jari. Buat pertemuan tak terlupakan bersama kolegamu menggunakan bantuan jasa kami yang mudah dan aman. </p>
+                    <div class="mb-3">
   <div class="relative mb-4 flex w-full flex-wrap items-stretch">
     <input
       type="search"
@@ -94,10 +87,14 @@ export default function landing() {
     </button>
   </div>
 </div>
-          </div>
-        </div>    
-    </div>
-    </section>
+                </div>
+                <Image
+            className="mx-auto scale-75"
+            src="/login.png"
+            width={770} height={1024} priority/>  
+            </div>
+            </div>
+           </section>
                  <section class="bg-[#19E8E0] border-b py-8">
       <div class="container mx-auto flex flex-wrap pt-4 pb-12">
         <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
@@ -129,6 +126,7 @@ export default function landing() {
         </div>
       </div>
     </section>
+    <Footer />
                  </main>
     )
 }
