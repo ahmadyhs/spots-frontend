@@ -4,7 +4,7 @@ import { Navbar } from '../../Navbar';
 export default function Edit() {
     return (
       <body className='bg-white'>
-        <title>Login</title>
+        <title>Edit Profile</title>
         <div className='flex w-full flex-col items-center justify-between p-4 bg-white'>
         <Navbar/>
         </div>
