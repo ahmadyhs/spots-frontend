@@ -10,12 +10,10 @@ export default function landing() {
                  <Image
                 className="rounded-2xl"
                 src="/login.jpg"
-                width={1200}
+                width={1225}
             height={420}
-          priority
                 />
                 	<div class="absolute top-14 left-14 px-6 py-4">
-
                  <h1 class="absolute text-5xl text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                     Spots Website Layanan Coworking Space
                  </h1>
@@ -36,8 +34,7 @@ export default function landing() {
                 Lorem ipsum dolor sit amet.
               </div>
               <p class="text-gray-800 text-base px-6 mb-5">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.
-              </p>
+              Website terproteksi SSL dan pembayaran dilakukan melalui Payment Gateway terpercaya untuk menjamin keamanan transaksi.              </p>
           </div>
         </div>
         <div class="w-full md:w-1/4 p-6 flex flex-col flex-grow flex-shrink">
@@ -46,8 +43,7 @@ export default function landing() {
                 Lorem ipsum dolor sit amet.
               </div>
               <p class="text-gray-800 text-base px-6 mb-5">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.
-              </p>
+              Kemudahan dalam mencari Coworking Space sesuai kebutuhan dengan fitur-fitur menarik, seperti pencarian berdasarkan jarak, detail informasi, dan lainnya.              </p>
           </div>
         </div>
         <div class="w-full md:w-1/4 p-6 flex flex-col flex-grow flex-shrink">
@@ -56,8 +52,7 @@ export default function landing() {
                 Lorem ipsum dolor sit amet.
               </div>
               <p class="text-gray-800 text-base px-6 mb-5">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.
-              </p>
+              Harga sewa yang kompetitif dengan tambahan promo-promo menarik.               </p>
           </div>
         </div>
         <div class="w-full md:w-1/4 p-6 flex flex-col flex-grow flex-shrink">
@@ -66,8 +61,7 @@ export default function landing() {
                 Lorem ipsum dolor sit amet.
               </div>
               <p class="text-gray-800 text-base px-6 mb-5">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.
-              </p>
+              Customer Service kami akan siap membantu jika ada kendala saat pemesanan tempat ataupun hal lainnya.              </p>
           </div>
         </div>
       </div>
@@ -112,31 +106,25 @@ export default function landing() {
         <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
           <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
               <div class="w-full font-bold text-xl text-gray-800 px-6">
-                Lorem ipsum dolor sit amet.
-              </div>
+              Cari Tempat Favoritmu              </div>
               <p class="text-gray-800 text-base px-6 mb-5">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.
-              </p>
+              Pertama, cari Coworking Space sesuai kebutuhanmu.              </p>
           </div>
         </div>
         <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
           <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
               <div class="w-full font-bold text-xl text-gray-800 px-6">
-                Lorem ipsum dolor sit amet.
-              </div>
+              Lakukan Pemesanan              </div>
               <p class="text-gray-800 text-base px-6 mb-5">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.
-              </p>
+              Kedua, booking melalui website serta bayar menggunakan metode yang dipilih.              </p>
           </div>
         </div>
         <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
           <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
               <div class="w-full font-bold text-xl text-gray-800 px-6">
-                Lorem ipsum dolor sit amet.
-              </div>
+              Nikmati Pengalaman Terbaikmu!              </div>
               <p class="text-gray-800 text-base px-6 mb-5">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.
-              </p>
+              Ketiga, cek status penyewaanmu dan bersiap untuk pengalaman terbaik.              </p>
           </div>
         </div>
       </div>
