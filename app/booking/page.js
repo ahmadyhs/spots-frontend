@@ -60,7 +60,7 @@ export default function Booking() {
             </div>
 
             <div class="right flex flex-col items-center">
-              <div className='bg-white p-2 mt-10 rounded-full'>
+              <div className='p-2 mt-10 rounded-full'>
                 <Image src="/room.png"  width={500} height={500} />
               </div>
               <button type="submit" class="block bg-blue-950 border border-teal-200 hover:bg-blue-400 text-white font-semibold rounded-full
