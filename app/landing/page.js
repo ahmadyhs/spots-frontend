@@ -17,7 +17,7 @@ export default function landing() {
                 />
                 </div>
                 </section>
-                 <section class="bg-[#19E8E0] border-b py-8">
+                 <section class="bg-[#027FFF] border-b py-8">
       <div class="container mx-auto flex flex-wrap pt-4 pb-12">
         <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
          Mengapa Harus Spots?
@@ -27,37 +27,57 @@ export default function landing() {
         </div>
         <div class="w-full md:w-1/4 p-6 flex flex-col flex-grow flex-shrink">
           <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
-              <div class="w-full font-bold text-xl text-gray-800 px-6">
-                Lorem ipsum dolor sit amet.
-              </div>
-              <p class="text-gray-800 text-base px-6 mb-5">
+          <br></br>
+          <Image
+              src="/shield.png"
+              className="mx-auto"
+              width={100}
+              height={24}
+            />
+            <br></br>
+              <p class="text-gray-800 text-base px-6 mb-5 text-center">
               Website terproteksi SSL dan pembayaran dilakukan melalui Payment Gateway terpercaya untuk menjamin keamanan transaksi.              </p>
           </div>
         </div>
         <div class="w-full md:w-1/4 p-6 flex flex-col flex-grow flex-shrink">
           <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
-              <div class="w-full font-bold text-xl text-gray-800 px-6">
-                Lorem ipsum dolor sit amet.
-              </div>
-              <p class="text-gray-800 text-base px-6 mb-5">
+          <br></br>
+          <Image
+              src="/search.png"
+              className="mx-auto"
+              width={100}
+              height={24}
+            />
+            <br></br>
+              <p class="text-gray-800 text-base px-6 mb-5 text-center">
               Kemudahan dalam mencari Coworking Space sesuai kebutuhan dengan fitur-fitur menarik, seperti pencarian berdasarkan jarak, detail informasi, dan lainnya.              </p>
           </div>
         </div>
         <div class="w-full md:w-1/4 p-6 flex flex-col flex-grow flex-shrink">
           <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
-              <div class="w-full font-bold text-xl text-gray-800 px-6">
-                Lorem ipsum dolor sit amet.
-              </div>
-              <p class="text-gray-800 text-base px-6 mb-5">
+          <br></br>
+          <Image
+              src="/tag.png"
+              className="mx-auto"
+              width={100}
+              height={24}
+            />
+            <br></br>
+              <p class="text-gray-800 text-base px-6 mb-5 text-center">
               Harga sewa yang kompetitif dengan tambahan promo-promo menarik.               </p>
           </div>
         </div>
         <div class="w-full md:w-1/4 p-6 flex flex-col flex-grow flex-shrink">
           <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
-              <div class="w-full font-bold text-xl text-gray-800 px-6">
-                Lorem ipsum dolor sit amet.
-              </div>
-              <p class="text-gray-800 text-base px-6 mb-5">
+          <br></br>
+          <Image
+              src="/operator.png"
+              className="mx-auto"
+              width={100}
+              height={24}
+            />
+            <br></br>
+              <p class="text-gray-800 text-base px-6 mb-5 text-center">
               Customer Service kami akan siap membantu jika ada kendala saat pemesanan tempat ataupun hal lainnya.              </p>
           </div>
         </div>
@@ -100,27 +120,51 @@ export default function landing() {
         <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
           Bagaimana Alurnya?
         </h2>
-        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
-              <div class="w-full font-bold text-xl text-gray-800 px-6">
+        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink ">
+          <div class="flex-1 bg-[#19E8E0]  overflow-hidden  border-hidden">
+            <br></br>
+          <Image
+              src="/city.png"
+              className="mx-auto"
+              width={100}
+              height={24}
+            />
+             <br></br>
+              <div class="w-full font-bold text-center text-xl text-gray-800 px-6">
               Cari Tempat Favoritmu              </div>
-              <p class="text-gray-800 text-base px-6 mb-5">
+              <p class="text-gray-800 text-base text-center px-6 mb-5">
               Pertama, cari Coworking Space sesuai kebutuhanmu.              </p>
           </div>
         </div>
         <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
-              <div class="w-full font-bold text-xl text-gray-800 px-6">
+        <div class="flex-1 bg-[#19E8E0]  overflow-hidden ">
+           <br></br>
+        <Image
+              src="/calender.png"
+              className="mx-auto"
+              width={100}
+              height={24}
+            />
+             <br></br>
+              <div class="w-full font-bold text-center text-xl text-gray-800 px-6">
               Lakukan Pemesanan              </div>
-              <p class="text-gray-800 text-base px-6 mb-5">
+              <p class="text-gray-800 text-center text-base px-6 mb-5">
               Kedua, booking melalui website serta bayar menggunakan metode yang dipilih.              </p>
           </div>
         </div>
         <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
-              <div class="w-full font-bold text-xl text-gray-800 px-6">
+        <div class="flex-1 bg-[#19E8E0]  overflow-hidden ">
+        <br></br>
+        <Image
+              src="/people.png"
+              className="mx-auto"
+              width={100}
+              height={24}
+            />
+             <br></br>
+              <div class="w-full font-bold text-center text-xl text-gray-800 px-6">
               Nikmati Pengalaman Terbaikmu!              </div>
-              <p class="text-gray-800 text-base px-6 mb-5">
+              <p class="text-gray-800 text-base text-center px-6 mb-5">
               Ketiga, cek status penyewaanmu dan bersiap untuk pengalaman terbaik.              </p>
           </div>
         </div>

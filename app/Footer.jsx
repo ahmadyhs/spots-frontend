@@ -47,8 +47,8 @@ function Footer() {
 					</ul>
 				</div>
 			</div>
-			<div className="flex flex-col justify-center items-center text-center  p-5 bg-gray-50">
-				<h1 className=" text-black-10 font-semibold">
+			<div className="flex flex-col justify-center items-center text-center  p-5 ">
+				<h1 className=" text-white-10 font-semibold">
                 Copyright © 2023 SPOTS. All rights reserved.
 				</h1>
 			</div>
