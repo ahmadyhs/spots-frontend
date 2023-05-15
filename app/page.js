@@ -1,129 +1,176 @@
 import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import Footer from "./Footer"
-import { Navbar } from './Navbar';
+import { Navbar } from './Navbar'
+import Footer from "./Footer";
+;
 
-const inter = Inter({ subsets: ['latin'] })
+export default function landing() {
+    return (
+    <main className=" flex w-full flex-col bg-white items-center justify-between">
+      <Image className="scale-x-100"
+        src="/TXT.png" width={1920} height={658}>
 
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-       <Navbar />
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
+      </Image>
+      <section className='w-full'>
+        <div className='absolute w-full items-center px-4 top-4 bg-transparent'>
+          <Navbar />
+        </div>
+        <div class="max-h-screen relative overflow-hidden w-screen shadow-lg cursor-pointer">
+        </div>
+      </section>
+      
+      <section class="bg-[#027FFF] w-full border-b py-8">
+      <div class="container mx-auto flex flex-wrap pt-4 pb-12">
+        <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
+         Mengapa Harus Spots?
+        </h2>
+        <div class="w-full mb-4">
+          <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+        </div>
+        <div class="w-full md:w-1/4 p-6 flex flex-col flex-grow flex-shrink">
+          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
+          <br></br>
+          <Image
+              src="/shield.png"
+              className="mx-auto"
               width={100}
               height={24}
-              priority
             />
-          </a>
+            <br></br>
+              <p class="text-gray-800 text-base px-6 mb-5 text-center">
+              Website terproteksi SSL dan pembayaran dilakukan melalui Payment Gateway terpercaya untuk menjamin keamanan transaksi.              </p>
+          </div>
+        </div>
+        <div class="w-full md:w-1/4 p-6 flex flex-col flex-grow flex-shrink">
+          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
+          <br></br>
+          <Image
+              src="/search.png"
+              className="mx-auto"
+              width={100}
+              height={24}
+            />
+            <br></br>
+              <p class="text-gray-800 text-base px-6 mb-5 text-center">
+              Kemudahan dalam mencari Coworking Space sesuai kebutuhan dengan fitur-fitur menarik, seperti pencarian berdasarkan jarak, detail informasi, dan lainnya.              </p>
+          </div>
+        </div>
+        
+        <div class="w-full md:w-1/4 p-6 flex flex-col flex-grow flex-shrink">
+          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
+          <br></br>
+          <Image
+              src="/tag.png"
+              className="mx-auto"
+              width={100}
+              height={24}
+            />
+            <br></br>
+              <p class="text-gray-800 text-base px-6 mb-5 text-center">
+              Harga sewa yang kompetitif dengan tambahan promo-promo menarik.               </p>
+          </div>
+        </div>
+
+        <div class="w-full md:w-1/4 p-6 flex flex-col flex-grow flex-shrink">
+          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
+          <br></br>
+          <Image
+              src="/operator.png"
+              className="mx-auto"
+              width={100}
+              height={24}
+            />
+            <br></br>
+              <p class="text-gray-800 text-base px-6 mb-5 text-center">
+              Customer Service kami akan siap membantu jika ada kendala saat pemesanan tempat ataupun hal lainnya.              </p>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+    <section class="bg-white-50 dark:bg-white-800">
+      <div class="max-w-screen-xl px-4 py-8 mx-auto space-y-12 lg:space-y-20">
+        <div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
+          <div class="text-gray-500 sm:text-lg dark:text-gray-400">
+            <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-[#027FFF] ">Cari Coworking Space Sesuai Kebutuhanmu!</h2>
+            <p class="mb-8 font-light lg:text-xl">Kami menghubungkanmu kepada penyedia Coworking Space terbaik hanya dengan jentikan jari. Buat pertemuan tak terlupakan bersama kolegamu menggunakan bantuan jasa kami yang mudah dan aman. </p>
+            <div class="mb-3">
+              <div class="relative mb-4 flex w-full flex-wrap items-stretch">
+                <input
+                  type="search"
+                  class="relative m-0 -mr-0.5 block w-[1px] min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
+                  placeholder="Search"
+                  aria-label="Search"
+                  aria-describedby="button-addon3" />
+
+                <button
+                  class="relative z-[2] rounded-r border-2 border-primary px-6 py-2 text-xs font-medium uppercase text-primary transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+                  type="button"
+                  id="button-addon3"
+                  data-te-ripple-init>
+                  Cari
+                </button>
+              </div>
+            </div>
+          </div>
+          <Image className="mx-auto scale-75" src="/login.png" width={770} height={1024} priority/>  
+        </div>
       </div>
+    </section>
+    
+    <section class="bg-[#19E8E0] w-full py-8">
+      <div class="container mx-auto flex flex-wrap pt-4 pb-12">
+        <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
+          Bagaimana Alurnya?
+        </h2>
+        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink ">
+          <div class="flex-1 bg-[#19E8E0]  overflow-hidden  border-hidden">
+            <br></br>
+            <Image
+                src="/city.png"
+                className="mx-auto"
+                width={100}
+                height={24}
+              />
+              <br></br>
+            <div class="w-full font-bold text-center text-xl text-gray-800 px-6">
+            Cari Tempat Favoritmu              </div>
+            <p class="text-gray-800 text-base text-center px-6 mb-5">
+            Pertama, cari Coworking Space sesuai kebutuhanmu.              </p>
+          </div>
+        </div>
+        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
+          <div class="flex-1 bg-[#19E8E0]  overflow-hidden ">
+            <br></br>
+            <Image src="/calender.png" className="mx-auto"width={100} height={24}/>
+             <br></br>
+            <div class="w-full font-bold text-center text-xl text-gray-800 px-6">
+            Lakukan Pemesanan              
+            </div>
+            <p class="text-gray-800 text-center text-base px-6 mb-5">
+            Kedua, booking melalui website serta bayar menggunakan metode yang dipilih.</p>
+          </div>
+        </div>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`${inter.className} mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p
-            className={`${inter.className} m-0 max-w-[30ch] text-sm opacity-50`}
-          >
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`${inter.className} mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p
-            className={`${inter.className} m-0 max-w-[30ch] text-sm opacity-50`}
-          >
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`${inter.className} mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p
-            className={`${inter.className} m-0 max-w-[30ch] text-sm opacity-50`}
-          >
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`${inter.className} mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p
-            className={`${inter.className} m-0 max-w-[30ch] text-sm opacity-50`}
-          >
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
+          <div class="flex-1 bg-[#19E8E0]  overflow-hidden ">
+          <br></br>
+          <Image
+                src="/people.png"
+                className="mx-auto"
+                width={100}
+                height={24}
+              />
+          <br></br>
+          <div class="w-full font-bold text-center text-xl text-gray-800 px-6">
+          Nikmati Pengalaman Terbaikmu!              
+          </div>
+          <p class="text-gray-800 text-base text-center px-6 mb-5">
+          Ketiga, cek status penyewaanmu dan bersiap untuk pengalaman terbaik.              </p>
+          </div>
+        </div>
       </div>
-      <Footer />
-
+    </section>
+    <Footer />
     </main>
-  )
+    )
 }
