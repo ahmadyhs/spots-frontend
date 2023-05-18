@@ -6,6 +6,7 @@ import Footer from "./Footer";
 export default function landing() {
     return (
     <main className=" flex w-full flex-col bg-white items-center justify-between">
+      <title>Spots</title>
       <Image className="scale-x-100"
         src="/TXT.png" width={1920} height={658}>
 
