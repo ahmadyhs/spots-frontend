@@ -2,10 +2,10 @@ import Image from 'next/image'
 
 export default function Login() {
     return (
-      <body class="max-h-screen">
+      <body class="h-screen">
         <title>Login</title>
-        <div class="bg-white grid lg:grid-cols-2 h-screen">
-          <div class="bg-white right flex flex-col text-center">
+        <div class="overflow-hidden bg-white grid lg:grid-cols-2 h-full">
+          <div class="bg-white right flex h-fit justify-center flex-col text-center">
             <Image className="mx-auto scale-75" src="/spots-blue.png"
             width={575} height={477} priority/>
 
@@ -23,10 +23,7 @@ export default function Login() {
               </div>
 
               <div class="flex justify-between mx-10">
-                <span className="flex">
-                  <input type="checkbox" id="remember" name="remember" className="m-2"></input>
-                  <p className="text-black font-semibold">Ingat Saya</p>
-                </span>
+              
                 <a href="#" class="text-right font-semibold text-gray-700 hover:text-blue-700 focus:text-blue-700">Lupa Password?</a>
               </div>
 
@@ -39,9 +36,9 @@ export default function Login() {
             </form>
           </div>
 
-          <div className="w-screen">
+          <div className="">
             <Image
-            className="bg-cover h-screen w-1/2"
+            className="h-full w-full"
             src="/login.png"
             width={770} height={1024} priority/>           
           </div>
