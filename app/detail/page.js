@@ -37,7 +37,7 @@ export default function Detail() {
                 <p className='text-[#17224D] font-semibold text-xl'>Tentang</p>
                 <p className='text-gray-400 mx-2 font-semibold text-xl'>Coworking Space</p>
               </div>
-              <p className='mt-2 text-black font-medium text-gray-600'>RuangMeeting.ID menyediakan banyak pilihan ruangan untuk berbagai keperluan dengan fasilitas yang lengkap.</p>
+              <p className='mt-2 font-medium text-gray-600'>RuangMeeting.ID menyediakan banyak pilihan ruangan untuk berbagai keperluan dengan fasilitas yang lengkap.</p>
             </div>
             <div class="rounded-xl bg-gray-200 border border-1 border-black col-span-1 right p-5 ml-2 mr-10 my-5">
               <p className='text-[#17224D] font-bold text-xl'>Harga</p>
