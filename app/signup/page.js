@@ -16,7 +16,11 @@ export default function Signup(){
                         <p>Isi data diri Anda!</p>
                         <form action="/api/form" method="post">
                             <div>
-                                <input type="text" id="nama_lengkap" name="nama_lengkap" placeholder="Nama Lengkap" required 
+                                <input type="text" id="nama_lengkap" name="nama_lengkap" placeholder="Nama Depan" required 
+                                className="border rounded-xl w-10/12 py-2 text-center m-5"/>
+                            </div>
+                            <div>
+                                <input type="text" id="nama_lengkap" name="nama_lengkap" placeholder="Nama Belakang" required 
                                 className="border rounded-xl w-10/12 py-2 text-center m-5"/>
                             </div>
                             <div>
@@ -35,6 +39,13 @@ export default function Signup(){
                                 <input type="text" id="nomor_telepon" name="nomor_telepon" placeholder="Nomor Telepon" required
                                 className="border rounded-xl w-10/12 py-2 text-center m-5"/>
                             </div>
+                         
+                            <select className="select select-bordered rounded-xl border-2 m-5 py-2 w-full max-w-xs text-center">
+                                <option disabled selected>Tipe Pengguna</option>
+                                <option>Penyewa</option>
+                                <option>Penyedia</option>
+                            </select>
+
                         </form>
                         <button className="bg-blue-950 text-white rounded-2xl py-3 px-20 font-bold m-5">Daftar Akun</button>
                     </div>
