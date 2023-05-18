@@ -14,7 +14,7 @@ export default function Edit() {
         </p>
         
 
-        <div class="bg-teal-200 grid lg:grid-cols-3 py-20 flex items-center">
+        <div class="bg-teal-200 grid lg:grid-cols-3 py-20 items-center">
           <div class="right flex flex-col items-center">
             <div className='bg-white p-20 mt-10 rounded-full'>
               <Image src="/person.png"  width={172} height={172} />
@@ -24,7 +24,13 @@ export default function Edit() {
           <div className="col-span-2">
           <form action="#" method="POST">
               <div className='flex flex-row items-center'>
-                <p className='w-3/12 text-[#17224D] text-2xl font-bold'>Name</p>
+                <p className='w-3/12 text-[#17224D] text-2xl font-bold'>First Name</p>
+                <input type="text" name="" id=""  
+                className="bg-transparent border border-[#17224D] rounded-2xl w-10/12 py-2 text-center text-black my-3 mr-10" autofocus autocomplete required></input>
+              </div>
+
+              <div className='flex flex-row items-center'>
+                <p className='w-3/12 text-[#17224D] text-2xl font-bold'>Last Name</p>
                 <input type="text" name="" id=""  
                 className="bg-transparent border border-[#17224D] rounded-2xl w-10/12 py-2 text-center text-black my-3 mr-10" autofocus autocomplete required></input>
               </div>
