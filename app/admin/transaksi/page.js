@@ -1,29 +1,23 @@
 import Image from 'next/image';
 
-export default function AdminLayout({
-    children,
-}) {
-    return(
+export default function Admin() {
+    return (
         <body className="grid grid-cols-5">
             <aside className="bg-[#17224D] h-screen grid place-content-between">
                 <div>
                     <div class="right flex flex-col items-center">
-                        <div className='bg-white p-5     mt-10 rounded-full'>
-                            <Image src="/person.png"  width={60} height={60} />
+                        <div class="right flex flex-col items-center mt-10">
+                            <Image src="/spots.png"  width={200} height={200} />
                         </div>
                     </div>
                     <p className='text-center m-5 text-3xl mb-10'>Admin</p>
                     <button className="bg-blue-500 w-full text-white text-left font-semibold p-3 my-1 hover:bg-blue-600 active:bg-slate-500">Data Penyewa</button>
                     <button className="bg-blue-500 w-full text-white text-left font-semibold p-3 my-1 hover:bg-blue-600 active:bg-slate-500">Data Penyedia</button>
-                    <button className="bg-blue-500 w-full text-white text-left font-semibold p-3 my-1 hover:bg-blue-600 active:bg-slate-500">Data Transaksi</button>
+                    <button className="bg-slate-500 w-full text-white text-left font-semibold p-3 my-1 hover:bg-blue-600 active:bg-slate-500">Data Transaksi</button>
                     <button className="bg-blue-500 w-full text-white text-left font-semibold p-3 my-1 hover:bg-blue-600 active:bg-slate-500">Data Coworking</button>
                 </div>
 
                 <div className='mb-10'>
-                    <div class="right flex flex-col items-center m-10">
-                        <Image src="/spots.png"  width={200} height={200} />
-                    </div>
-
                     <div className='flex flex-col items-center'>
                         <button className="rounded border border-white bg-transparent w-5/6 text-white text-left font-semibold p-3 my-1 hover:bg-blue-600 active:bg-slate-500">← Keluar</button>
                     </div>
@@ -32,6 +26,7 @@ export default function AdminLayout({
             
 
             <main className="col-span-4 bg-white">
+                <p className='text-black'>DATA TRANSAKSI</p>
                 <table className="m-10"> 
                     <tbody>
                         <tr className="bg-[#3C4158] text-center">
@@ -62,4 +57,4 @@ export default function AdminLayout({
             
         </body>
     )
-} 
+}
