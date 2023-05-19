@@ -1,6 +1,6 @@
 import { Navbar } from '../Navbar';
 
-export default function TransactionList() {
+    export default function ListTransaksi() {
     return (
         <body className='bg-white'>
         <title>Riwayat Transaksi</title>
