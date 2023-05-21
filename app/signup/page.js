@@ -1,7 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import {useState } from 'react'
 import Image from 'next/image'
+import { useRouter } from "next/navigation"
 
 const Signup = () => {
     const [firstName, setFirstName] = useState('');
@@ -12,10 +13,7 @@ const Signup = () => {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [userType, setUserType] = useState('TENANT');
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        register();
-    };    
+    const router = useRouter(); 
     
     const register = async () => {
         const data = {email, password, confirmPassword,
@@ -31,8 +29,6 @@ const Signup = () => {
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
     }
-    
-
 
     return(
         <div>
@@ -40,7 +36,7 @@ const Signup = () => {
 
             <div className="bg-blue-950 grid lg:grid-cols-2 h-screen">  
                 <div className='m-auto'>
-                    <Image src="/spots.png"
+                    <Image src="/spots.png" alt='logo'
                     width={735} height={691} priority/>
                 </div>
 
@@ -50,7 +46,11 @@ const Signup = () => {
                         <h1 className="text-xl font-bold mb-2">Registrasi Akun</h1>
                         <p>Isi data diri Anda!</p>
 
-                        <form action="" method="" onSubmit={handleSubmit}>
+                        <form action='' method='' onSubmit={e =>{
+                            e.preventDefault();
+                            register();
+                            router.push('/login');
+                        }}>
                             <div>
                                 <input type="text" placeholder="Nama Depan" required 
                                 className="border rounded-xl w-10/12 py-2 text-center m-5"
