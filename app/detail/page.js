@@ -13,25 +13,25 @@ export default function Detail() {
           <div className='grid w-11/12 m-auto'>
             <p className='text-[#17224D] font-bold text-2xl mx-10 my-6'>RuangMeeting.ID</p>
           </div>
-          <div class="grid w-11/12 m-auto rounded-xl lg:grid-cols-3 py-5">  
+          <div className="grid w-11/12 m-auto rounded-xl lg:grid-cols-3 py-5">  
             <div className="col-span-2 px-10 flex  justify-center">
-                <Image src="/room.png" className='w-full' width={531} height={344} />
+                <Image alt='room' src="/room.png" className='w-full' width={531} height={344} />
             </div>
 
-            <div class="col-span-1 right flex flex-col items-center pr-10">
+            <div className="col-span-1 right flex flex-col items-center pr-10">
               <div className='mb-2'>
-                <Image src="/room2.png" width={480} height={200} />
+                <Image alt='room' src="/room2.png" width={480} height={200} />
               </div>
               <div className='my-2 '>
-                <Image src="/room3.png" width={480} height={200} />
+                <Image alt='room' src="/room3.png" width={480} height={200} />
               </div>
               <div className='mt-2 '>
-                <Image src="/room4.png" width={480} height={200} />
+                <Image alt='room' src="/room4.png" width={480} height={200} />
               </div>
             </div>
           </div> 
 
-          <div class="grid w-11/12 m-auto rounded-xl lg:grid-cols-3 py-2">  
+          <div className="grid w-11/12 m-auto rounded-xl lg:grid-cols-3 py-2">  
             <div className="rounded-xl bg-gray-200 border border-1 border-black col-span-2 p-5 ml-10 mr-2 my-5">
               <div className='flex'>
                 <p className='text-[#17224D] font-semibold text-xl'>Tentang</p>
@@ -39,13 +39,13 @@ export default function Detail() {
               </div>
               <p className='mt-2 font-medium text-gray-600'>RuangMeeting.ID menyediakan banyak pilihan ruangan untuk berbagai keperluan dengan fasilitas yang lengkap.</p>
             </div>
-            <div class="rounded-xl bg-gray-200 border border-1 border-black col-span-1 right p-5 ml-2 mr-10 my-5">
+            <div className="rounded-xl bg-gray-200 border border-1 border-black col-span-1 right p-5 ml-2 mr-10 my-5">
               <p className='text-[#17224D] font-bold text-xl'>Harga</p>
               <p className='text-2xl font-bold text-teal-500 mt'>Rp 350.000/Jam</p>
             </div>
           </div>
 
-          <div class="grid w-11/12 m-auto rounded-xl lg:grid-cols-3 py-2">  
+          <div className="grid w-11/12 m-auto rounded-xl lg:grid-cols-3 py-2">  
             <div className="rounded-xl bg-gray-200 border border-1 border-black col-span-2 p-5 ml-10 mr-2 my-5">
               <p className='text-[#17224D] font-semibold text-xl mb-2'>Fasilitas</p>
               <ul className='list-disc mx-5 text-gray-600 font-medium'>
@@ -57,11 +57,11 @@ export default function Detail() {
               </ul>
               <p className='text-[#17224D] font-semibold text-xl mt-2'>Lokasi</p>
               <div className='flex items-center'>
-                <Image src="/pin.png" className='scale-50' width={55} height={71} />
+                <Image alt='pin' src="/pin.png" className='scale-50' width={55} height={71} />
                 <p className='mt-2 font-medium text-gray-600'>Jalan Sesama No.123, Kota Bandung</p>
               </div>
             </div>
-            <div class="rounded-xl bg-gray-200 border border-1 border-black col-span-1 right p-5 ml-2 mr-10 my-5">
+            <div className="rounded-xl bg-gray-200 border border-1 border-black col-span-1 right p-5 ml-2 mr-10 my-5">
               <p className='text-[#17224D] font-bold text-xl mb-2'>Jam Operasional</p>
               <div className='flex justify-between items-center'>
                 <p className='font-medium text-gray-600'>Senin</p>
@@ -98,9 +98,9 @@ export default function Detail() {
                 <p className='text-l font-bold text-teal-500'>08.00 - 10.00</p>
               </div>
 
-              <hr class="my-5 border-gray-500" />
+              <hr className="my-5 border-gray-500" />
 
-              <button type="submit" class="block bg-blue-950 hover:bg-blue-400 text-white font-semibold rounded-full
+              <button type="submit" className="block bg-blue-950 hover:bg-blue-400 text-white font-semibold rounded-full
                         px-20 py-3 m-auto mt-5">Booking</button>
             </div>
           </div>
