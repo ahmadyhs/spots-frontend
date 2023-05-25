@@ -16,7 +16,7 @@ export default function Booking() {
         <p className='bg-white text-l text-black pt-4 pb-8 pl-12'>Mohon cek ulang data yang dimasukkan</p>
 
         <div className=''>
-          <div class="grid w-11/12 m-auto rounded-xl border-dashed border-2 border-black lg:grid-cols-2 py-5 items-center">  
+          <div className="grid w-11/12 m-auto rounded-xl border-dashed border-2 border-black lg:grid-cols-2 py-5 items-center">  
             <div className="px-10 py-5">
               <p className='text-black font-bold text-2xl my-6'>Data Booking</p>
               <div className='flex justify-between my-3'>
@@ -53,11 +53,11 @@ export default function Booking() {
               </form>        
             </div>
 
-            <div class="right flex flex-col items-center">
+            <div className="right flex flex-col items-center">
               <div className='p-2 mt-10 rounded-full'>
-                <Image src="/room.png"  width={500} height={500} />
+                <Image alt='room' src="/room.png"  width={500} height={500} />
               </div>
-              <button type="submit" class="block bg-blue-950 border border-teal-200 hover:bg-blue-400 text-white font-semibold rounded-full
+              <button type="submit" className="block bg-blue-950 border border-teal-200 hover:bg-blue-400 text-white font-semibold rounded-full
                         px-20 py-3 m-auto mt-10">Submit Booking</button>
             </div>
           </div>  
