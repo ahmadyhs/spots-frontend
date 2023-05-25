@@ -10,7 +10,7 @@ export default function Transaction() {
         </div>
 
         <div className='bg-white'>
-          <div class="bg-gray-200 grid w-11/12 m-auto rounded-xl border-dashed border-2 border-black lg:grid-cols-2 py-5 items-center">  
+          <div className="bg-gray-200 grid w-11/12 m-auto rounded-xl border-dashed border-2 border-black lg:grid-cols-2 py-5 items-center">  
             <div className="px-10">
               <p className='text-black font-bold text-2xl my-6'>Detail Transaksi</p>
 
@@ -60,32 +60,32 @@ export default function Transaction() {
               </form>        
             </div>
 
-            <div class="right flex flex-col items-center">
+            <div className="right flex flex-col items-center">
               <div className='p-2 mt-10 '>
-                <Image src="/room.png"  width={500} height={500} />
+                <Image alt='room' src="/room.png"  width={500} height={500} />
               </div>
               <button type="submit" class="block bg-blue-950 hover:bg-blue-400 text-white font-semibold rounded-full
                         px-20 py-3 m-auto mt-10">Submit Booking</button>
             </div>
           </div> 
 
-          <div class="bg-gray-200 grid w-11/12 m-auto rounded-xl border-dashed border-2 border-black py-2 items-center mt-5">  
+          <div className="bg-gray-200 grid w-11/12 m-auto rounded-xl border-dashed border-2 border-black py-2 items-center mt-5">  
             <div className="px-10">
               <p className='text-black font-bold text-2xl my-2'>Pilih Metode Pembayaran</p>
               <div className='flex justify-between'>
                 <div className='flex my-5'>
                   <input type="checkbox" className='mx-5'></input>
-                  <Image src="/gopay.png" width={214} height={47}/>
+                  <Image alt='Gopay' src="/gopay.png" width={214} height={47}/>
                 </div>
 
                 <div className='flex my-5'>
                   <input type="checkbox" className='mx-5'></input>
-                  <Image src="/mandiri.png" width={183} height={53}/>
+                  <Image alt='Mandiri' src="/mandiri.png" width={183} height={53}/>
                 </div>
 
                 <div className='flex my-5'>
                   <input type="checkbox" className='mx-5'></input>
-                  <Image src="/bni.png" width={163} height={53}/>
+                  <Image alt='BNI' src="/bni.png" width={163} height={53}/>
                 </div>
 
               </div>
@@ -93,10 +93,10 @@ export default function Transaction() {
           </div> 
 
           <div className='flex items-center'>
-            <button type="submit" class="block bg-blue-950 hover:bg-blue-400 text-white font-semibold rounded-full
+            <button type="submit" className="block bg-blue-950 hover:bg-blue-400 text-white font-semibold rounded-full
                           px-20 py-3 m-auto mt-5">Bayar</button>
 
-            <button type="submit" class="block bg-white border border-blue-950 hover:bg-blue-400 text-blue-950 font-semibold rounded-full
+            <button type="submit" className="block bg-white border border-blue-950 hover:bg-blue-400 text-blue-950 font-semibold rounded-full
                           px-20 py-3 m-auto mt-5">Batal</button>
           </div>
         </div>
