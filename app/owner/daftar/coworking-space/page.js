@@ -5,9 +5,9 @@ export default function Coworking() {
         <body className="grid grid-cols-5">
             <aside className="bg-[#17224D] h-full grid place-content-between">
                 <div>
-                    <div class="right flex flex-col items-center">
-                        <div class="right flex flex-col items-center mt-10">
-                            <Image src="/spots.png"  width={200} height={200} />
+                    <div className="right flex flex-col items-center">
+                        <div className="right flex flex-col items-center mt-10">
+                            <Image alt='logo' src="/spots.png"  width={200} height={200} />
                         </div>
                     </div>
                     <p className='text-center m-5 text-3xl mb-10'>Owner</p>

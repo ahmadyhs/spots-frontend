@@ -5,9 +5,9 @@ export default function CoworkingData() {
         <body className="grid grid-cols-5">
             <aside className="bg-blue-500 h-full grid place-content-between">
                 <div>
-                    <div class="right flex flex-col items-center">
-                        <div class="right flex flex-col items-center mt-10">
-                            <Image src="/spots.png"  width={200} height={200} />
+                    <div className="right flex flex-col items-center">
+                        <div className="right flex flex-col items-center mt-10">
+                            <Image alt='logo' src="/spots.png"  width={200} height={200} />
                         </div>
                     </div>
                     <p className='text-center m-5 text-3xl mb-10'>Coworking Space</p>
@@ -86,7 +86,7 @@ export default function CoworkingData() {
                         <div className='w-9/12 flex justify-center items-center h-fit'>
                             <p className='text-black text-xl w-4/12'>KTP</p>
                             <div className='rounded-xl w-8/12 m-5 h-fit'>
-                                <Image className='h-20 w-fit' src="/room.png" height={344} width={531} />
+                                <Image alt='room' className='h-20 w-fit' src="/room.png" height={344} width={531} />
                             </div>
                         </div>
                     </div>
