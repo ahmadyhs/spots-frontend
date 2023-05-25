@@ -3,11 +3,12 @@ import Image from 'next/image';
 export default function Admin() {
     return (
         <body className="grid grid-cols-5">
+            <title>Admin</title>
             <aside className="bg-[#17224D] h-screen grid place-content-between">
                 <div>
                     <div class="right flex flex-col items-center">
                         <div class="right flex flex-col items-center mt-10">
-                            <Image src="/spots.png"  width={200} height={200} />
+                            <Image alt='logo' src="/spots.png"  width={200} height={200} />
                         </div>
                     </div>
                     <p className='text-center m-5 text-3xl mb-10'>Admin</p>
