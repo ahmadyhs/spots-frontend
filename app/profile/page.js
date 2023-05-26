@@ -18,7 +18,7 @@ const Profile = async () => {
   .then(response => response.text())
   .then(result => {
       let resultArray = JSON.parse(result);
-      picture = resultArray?.tenant?.avatar_url;
+      picture = (resultArray.tenant.avatar_url ?? '');
       profileData = resultArray.tenant.user;
   })
   .catch(error => console.log('error', error));
@@ -45,22 +45,22 @@ const Profile = async () => {
         <div className="col-span-2">
           <div className='grid grid-cols-2 items-center my-3'>
             <p className='w-full text-[#17224D] text-2xl font-bold'>Nama Depan</p>
-            <p className='w-full text-[#17224D] text-2xl font-bold'>{profileData?.first_name}</p>
+            <p className='w-full text-[#17224D] text-2xl font-bold'>{(profileData.first_name ?? '')}</p>
           </div>
 
           <div className='grid grid-cols-2 items-center my-3'>
             <p className='w-full text-[#17224D] text-2xl font-bold'>Nama Belakang</p>
-            <p className='w-full text-[#17224D] text-2xl font-bold'>{profileData?.last_name}</p>
+            <p className='w-full text-[#17224D] text-2xl font-bold'>{(profileData.last_name ?? '')}</p>
           </div>
 
           <div className='grid grid-cols-2 items-center my-3'>
             <p className='w-full text-[#17224D] text-2xl font-bold'>Email</p>
-            <p className='w-full text-[#17224D] text-2xl font-bold'>{profileData?.email}</p>
+            <p className='w-full text-[#17224D] text-2xl font-bold'>{(profileData.email ?? '')}</p>
           </div>
 
           <div className='grid grid-cols-2 items-center my-3'>
             <p className='w-full text-[#17224D] text-2xl font-bold'>Nomor Telepon</p>
-            <p className='w-full text-[#17224D] text-2xl font-bold'>{profileData?.phone_number}</p>
+            <p className='w-full text-[#17224D] text-2xl font-bold'>{(profileData.phone_number ?? '')}</p>
           </div>
           <div className='flex items-center'>
             <a className=" bg-blue-950 border border-teal-200 hover:bg-blue-400 text-white font-semibold rounded-lg
