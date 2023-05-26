@@ -1,9 +1,10 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { Navbar } from '../Navbar';
 
 export default function Detail() {
     return (
-      <body className='bg-white'>
+      <div className='bg-white'>
         <title>Detail</title>
         <div className='flex w-full flex-col items-center justify-between p-4 bg-white'>
           <Navbar/>
@@ -100,11 +101,11 @@ export default function Detail() {
 
               <hr className="my-5 border-gray-500" />
 
-              <button type="submit" className="block bg-blue-950 hover:bg-blue-400 text-white font-semibold rounded-full
-                        px-20 py-3 m-auto mt-5">Booking</button>
+              <Link type="submit" className="block bg-blue-950 hover:bg-blue-400 text-white font-semibold rounded-full
+                        px-20 py-3 m-auto mt-5 text-center" href='/booking'>Booking</Link>
             </div>
           </div>
         </div>
-      </body>
+      </div>
     )
 }
