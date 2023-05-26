@@ -18,7 +18,7 @@ const Signup = () => {
     const register = async () => {
         const data = {email, password, confirmPassword,
             firstName, lastName, phoneNumber, userType}
-        await fetch('http://localhost:4000/api/auth/register',{
+        await fetch('https://api.spotscoworking.live/auth/register',{
             method: 'POST',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
@@ -102,8 +102,8 @@ const Signup = () => {
                                     <option value="OWNER">Penyedia</option>
                                 </select>
                             </div>
-
-                        <button type='submit' className="bg-blue-950 text-white rounded-2xl py-3 px-20 font-bold m-5">Daftar Akun</button>
+                            
+                            <button type='submit' className="bg-blue-950 text-white rounded-2xl py-3 px-20 font-bold m-5">Daftar Akun</button>    
                         </form>
                     </div>
                 </div>
