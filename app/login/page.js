@@ -1,18 +1,20 @@
 'use client'
 
 import Image from 'next/image'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import AuthContext from "../api/authContext";
 
 const Login = () => {
   const router = useRouter();
+  const context = useContext(AuthContext)
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
     
   const login = async () => {
     const data = {email, password}
-    await fetch('http://localhost:4000/api/auth/login',{
+    await fetch('https://api.spotscoworking.live/auth/login',{
         method: 'POST',
         headers: {
             'Content-type': 'application/json; charset=UTF-8',
@@ -21,16 +23,20 @@ const Login = () => {
       })
     .then(response => response.text())
     .then(result => {
-      const token= JSON.parse(result)
-      if (token.accessToken) {console.log("berhasil");
-          router.push('/')
+      const token= JSON.parse(result);
+      context.user = data.email;
+      if (token.accessToken) {
+        context.token = token.accessToken;
+        console.log(context.token)
+        console.log("Login Berhasil!");
+        router.push('/');
     }
     })
     .catch(error => console.log('error', error));
   }
 
   return (
-    <body className="h-screen">
+    <div className="h-screen">
       <title>Login</title>
       <div className="overflow-hidden bg-white grid lg:grid-cols-2 h-full">
         <div className="bg-white right flex h-fit justify-center flex-col text-center">
@@ -85,7 +91,7 @@ const Login = () => {
           width={770} height={1024} alt='cowork' priority/>           
         </div>
       </div>
-    </body>
+    </div>
   )
 }
 
