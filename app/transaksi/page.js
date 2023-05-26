@@ -1,9 +1,10 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { Navbar } from '../Navbar';
 
 export default function Transaction() {
     return (
-      <body className='bg-white'>
+      <div className='bg-white'>
         <title>Transaksi</title>
         <div className='flex w-full flex-col items-center justify-between p-4 bg-white'>
           <Navbar/>
@@ -64,8 +65,6 @@ export default function Transaction() {
               <div className='p-2 mt-10 '>
                 <Image alt='room' src="/room.png"  width={500} height={500} />
               </div>
-              <button type="submit" class="block bg-blue-950 hover:bg-blue-400 text-white font-semibold rounded-full
-                        px-20 py-3 m-auto mt-10">Submit Booking</button>
             </div>
           </div> 
 
@@ -94,12 +93,12 @@ export default function Transaction() {
 
           <div className='flex items-center'>
             <button type="submit" className="block bg-blue-950 hover:bg-blue-400 text-white font-semibold rounded-full
-                          px-20 py-3 m-auto mt-5">Bayar</button>
+                          px-20 py-3 m-auto mt-5 text-center">Bayar</button>
 
-            <button type="submit" className="block bg-white border border-blue-950 hover:bg-blue-400 text-blue-950 font-semibold rounded-full
-                          px-20 py-3 m-auto mt-5">Batal</button>
+            <Link type="submit" className="block bg-white border border-blue-950 hover:bg-blue-400 text-blue-950 font-semibold rounded-full
+                          px-20 py-3 m-auto mt-5 text-center" href='/booking'>Batal</Link>
           </div>
         </div>
-      </body>
+      </div>
     )
 }
