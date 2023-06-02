@@ -1,13 +1,13 @@
 'use client'
 
 import Image from 'next/image'
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import AuthContext from "../api/authContext";
+//import AuthContext from "../api/authContext";
 
 const Login = () => {
   const router = useRouter();
-  const context = useContext(AuthContext)
+  //const context = useContext(AuthContext)
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -24,10 +24,9 @@ const Login = () => {
     .then(response => response.text())
     .then(result => {
       const token= JSON.parse(result);
-      context.user = data.email;
+      //context.user = data.email;
       if (token.accessToken) {
-        context.token = token.accessToken;
-        console.log(context.token)
+        localStorage.setItem('spotsToken', token.accessToken);
         console.log("Login Berhasil!");
         router.push('/');
     }
