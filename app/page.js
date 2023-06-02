@@ -95,24 +95,6 @@ export default function landing() {
           <div className="text-gray-500 sm:text-lg dark:text-gray-400">
             <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-[#027FFF] ">Cari Coworking Space Sesuai Kebutuhanmu!</h2>
             <p className="mb-8 font-light lg:text-xl">Kami menghubungkanmu kepada penyedia Coworking Space terbaik hanya dengan jentikan jari. Buat pertemuan tak terlupakan bersama kolegamu menggunakan bantuan jasa kami yang mudah dan aman. </p>
-            {/* <div className="mb-3">
-              <div className="relative mb-4 flex w-full flex-wrap items-stretch">
-                <input
-                  type="search"
-                  className="relative m-0 -mr-0.5 block w-[1px] min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
-                  placeholder="Search"
-                  aria-label="Search"
-                  aria-describedby="button-addon3" />
-
-                <button
-                  className="relative z-[2] rounded-r border-2 border-primary px-6 py-2 text-xs font-medium uppercase text-primary transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
-                  type="button"
-                  id="button-addon3"
-                  data-te-ripple-init>
-                  Cari
-                </button>
-              </div>
-            </div> */}
           </div>
           <Image className="mx-auto scale-75" src="/login.png" width={770} height={1024} alt='hands' priority/>  
         </div>

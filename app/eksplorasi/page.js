@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 import Navbar from '../Navbar';
 import Card from '../components/listingCard'
 
-
 const Eksplorasi = () => {
   const router = useRouter();
   
@@ -87,6 +86,7 @@ const Eksplorasi = () => {
         return(
           <Card
             key={space.location.space_id}
+            id={space.location.space_id}
             name={space.name}
             price={space.price}
             place={space.location.address}

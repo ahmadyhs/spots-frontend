@@ -9,17 +9,10 @@ import Image from 'next/image';
 
 const Profile = () => {
   const router = useRouter();
-  //const context = useContext(AuthContext);
+
   const [token, setToken] = useState(null);
   const authorization = "Bearer " + token;
   const header = {'Authorization': authorization};
-  //const [header, setHeader] = useState();
-
-  //let authToken = {'Authorization': authorization};
-  //setHeader(authToken);
-
-  //let profileData = {};
-  //let picture = {};
 
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -48,26 +41,11 @@ const Profile = () => {
       getData()
         .catch(error => {
           console.log('error', error);
-          //if(token === null) {
-            //localStorage.removeItem('spotsToken');
-            router.push('/');
-          //}
+          localStorage.removeItem('spotsToken');
+          router.push('/');
         });
     }
   },[header])
-
-  // await fetch ('https://api.spotscoworking.live/tenants/profile', {headers: header})
-  // .then(response => response.text())
-  // .then(result => {
-  //     let resultArray = JSON.parse(result);
-  //     picture = (resultArray?.tenant?.avatar_url ?? '');
-  //     profileData = resultArray?.tenant?.user;
-  // })
-  // .catch(error => {
-  //   console.log('error', error);
-  //   localStorage.removeItem('spotsToken');
-  //   router.push('/');
-  // });
 
   return (
     <div className='bg-white'>

@@ -1,14 +1,13 @@
 'use client'
 
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Navbar from '../../Navbar';
 import { useRouter } from 'next/navigation';
-//import AuthContext from '../../api/authContext';
 
 const Edit = () => {
   const router = useRouter();
   
-  let token = null;
+  const [token, setToken] = useState(null);
   const authorization = "Bearer " + token;
   const header = {'Authorization': authorization};
 
@@ -19,9 +18,7 @@ const Edit = () => {
   const [noTel, setNoTel] = useState('');
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      token = localStorage.getItem('spotsToken') || null;
-    }
+    setToken(localStorage.getItem('spotsToken'));
   },[])
 
   const postData = async () =>{
@@ -119,8 +116,6 @@ const Edit = () => {
             <div className='flex flex-row items-center'>
               <p className='w-3/12 text-[#17224D] text-2xl font-bold'>Foto</p>
               <div className='rounded-xl bg-slate-400 h-20 w-8/12 border-dashed border-2 m-5'>
-                {/* <p className='bg-slate-100 p-2 text-black absolute my-4 ml-10'>Pilih File</p>
-                <label htmlFor='file' className='text-black absolute my-6 ml-40 overflow-hidden'>silakan klik di sini</label> */}
                 <input 
                   type="file" 
                   id="file" 
