@@ -1,18 +1,27 @@
 'use client'
 
-import { Navbar } from '../Navbar';
-import { useContext } from 'react';
-import AuthContext from '../api/authContext';
+import { useEffect, useState } from 'react';
+import Navbar from '../Navbar';
+import { useRouter } from 'next/navigation';
+//import { useContext } from 'react';
+//import AuthContext from '../api/authContext';
 
 const Profile = async () => {
-  const context = useContext(AuthContext);
-  const authorization = "Bearer " + context.token;
+  const router = useRouter();
+  //const context = useContext(AuthContext);
+  //const [token, setToken] = useState(null);
+  let token = localStorage.getItem('spotsToken') || null;
+  const authorization = "Bearer " + token;
   const header = {'Authorization': authorization};
 
   let profileData = {};
   let picture = {};
 
-  console.log(header)
+  // useEffect(() => {
+  //   if (typeof window !== 'undefined') {
+  //     setToken(localStorage.getItem('spotsToken') ? localStorage.getItem('spotsToken') : null);
+  //   }
+  // },[])
 
   await fetch ('https://api.spotscoworking.live/tenants/profile', {headers: header})
   .then(response => response.text())
@@ -21,7 +30,11 @@ const Profile = async () => {
       picture = (resultArray?.tenant?.avatar_url ?? '');
       profileData = resultArray?.tenant?.user;
   })
-  .catch(error => console.log('error', error));
+  .catch(error => {
+    console.log('error', error);
+    localStorage.removeItem('spotsToken');
+    router.push('/');
+  });
 
   return (
     <div className='bg-white'>

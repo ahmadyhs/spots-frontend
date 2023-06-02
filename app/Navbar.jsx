@@ -1,8 +1,10 @@
+'use client'
+
 import Link from 'next/link';
 import Image from 'next/image';
 import UserButton from './components/userMenu'
 
-export const Navbar = () => {
+const Navbar = () => {
   return (
     <>
       <nav className='flex justify-between w-full flex-wrap bg-[#17224D] py-2 px-6 rounded-lg'>
@@ -27,4 +29,7 @@ export const Navbar = () => {
       </nav>
     </>
   );
-};
+}
+
+export default Navbar
+

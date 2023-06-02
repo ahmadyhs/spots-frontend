@@ -1,27 +1,38 @@
 'use client'
 
-import { Navbar } from '../Navbar';
-import { useContext } from 'react';
-import AuthContext from '../api/authContext';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import Navbar from '../Navbar';
 import Card from '../components/listingCard'
 
 
-const Eksplorasi = async () => {
-  const context = useContext(AuthContext);
-  const authorization = "Bearer " + context.token;
+const Eksplorasi = () => {
+  const router = useRouter();
+  
+  const [token, setToken] = useState(null);
+  const [spaceResult, setSpaceResult] = useState(null);
+  const authorization = "Bearer " + token;
   const header = {'Authorization': authorization};
 
-  let spaceResult;
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setToken(localStorage.getItem('spotsToken') ? localStorage.getItem('spotsToken') : null);
+    }
 
-  await fetch ('https://api.spotscoworking.live/coworking-spaces', {headers: header})
-  .then(response => response.text())
-  .then(result => {
-      let resultArray = JSON.parse(result);
-      spaceResult = resultArray.coworkingSpaces;
-      console.log("Data Coworking Space berhasil didapatkan")
-  })
-  .catch(error => console.log('error', error));
+    const getData = async () =>{
+      const data = await fetch ('https://api.spotscoworking.live/coworking-spaces', {headers: header})
+      const json = await data.json();
 
+      setSpaceResult(json.coworkingSpaces); 
+    } 
+
+    getData()
+      .catch(error => {
+        console.log('error', error);
+        localStorage.removeItem('spotsToken');
+        router.push('/');
+      });
+  },[])
 
   return (
     <div>
@@ -72,7 +83,7 @@ const Eksplorasi = async () => {
         </button>
       </div>
       
-      {spaceResult.map(space =>{
+      {spaceResult && spaceResult.map(space =>{
         return(
           <Card
             key={space.location.space_id}

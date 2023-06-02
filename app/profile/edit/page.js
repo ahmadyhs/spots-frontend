@@ -1,14 +1,15 @@
 'use client'
 
-import { useContext, useState } from 'react';
-import { Navbar } from '../../Navbar';
+import { useContext, useEffect, useState } from 'react';
+import Navbar from '../../Navbar';
 import { useRouter } from 'next/navigation';
-import AuthContext from '../../api/authContext';
+//import AuthContext from '../../api/authContext';
 
 const Edit = () => {
   const router = useRouter();
-  const context = useContext(AuthContext);
-  const authorization = "Bearer " + context.token;
+  
+  let token = null;
+  const authorization = "Bearer " + token;
   const header = {'Authorization': authorization};
 
   const [image, setImage] = useState(null);
@@ -16,6 +17,12 @@ const Edit = () => {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [noTel, setNoTel] = useState('');
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      token = localStorage.getItem('spotsToken') || null;
+    }
+  },[])
 
   const postData = async () =>{
     const formData = new FormData();
@@ -35,7 +42,11 @@ const Edit = () => {
     .then(result => {
         router.push('/profile');
     })
-    .catch(error => console.log('error', error));
+    .catch(error => {
+      console.log('error', error);
+      localStorage.removeItem('spotsToken');
+      router.push('/');
+    });
   }
 
   return (

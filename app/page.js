@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Footer from "./Footer"
-import { Navbar } from './Navbar'
+import Navbar from './Navbar'
 
 export default function landing() {
     return (
@@ -95,7 +95,7 @@ export default function landing() {
           <div className="text-gray-500 sm:text-lg dark:text-gray-400">
             <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-[#027FFF] ">Cari Coworking Space Sesuai Kebutuhanmu!</h2>
             <p className="mb-8 font-light lg:text-xl">Kami menghubungkanmu kepada penyedia Coworking Space terbaik hanya dengan jentikan jari. Buat pertemuan tak terlupakan bersama kolegamu menggunakan bantuan jasa kami yang mudah dan aman. </p>
-            <div className="mb-3">
+            {/* <div className="mb-3">
               <div className="relative mb-4 flex w-full flex-wrap items-stretch">
                 <input
                   type="search"
@@ -112,7 +112,7 @@ export default function landing() {
                   Cari
                 </button>
               </div>
-            </div>
+            </div> */}
           </div>
           <Image className="mx-auto scale-75" src="/login.png" width={770} height={1024} alt='hands' priority/>  
         </div>
