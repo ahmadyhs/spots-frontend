@@ -17,9 +17,9 @@ export const Navbar = () => {
             <Link className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:text-green-600' href='/eksplorasi'>
                 Cari Coworking Space
             </Link>
-            <Link  className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:text-green-600' href='/'>
+            {/* <Link  className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:text-green-600' href='/'>
                 Tentang Kami
-            </Link>  
+            </Link>   */}
           </div>
         </div>
       

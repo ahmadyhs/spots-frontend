@@ -27,7 +27,6 @@ const Login = () => {
       context.user = data.email;
       if (token.accessToken) {
         context.token = token.accessToken;
-        console.log(context.token)
         console.log("Login Berhasil!");
         router.push('/');
     }
