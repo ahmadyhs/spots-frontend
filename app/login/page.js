@@ -13,26 +13,26 @@ const Login = () => {
   const [password, setPassword] = useState('');
     
   const login = async () => {
-    const data = {email, password}
+    const data = await {email, password};
     await fetch('https://api.spotscoworking.live/auth/login',{
         method: 'POST',
         headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-          },
+          'Content-type': 'application/json; charset=UTF-8',
+       },
         body: JSON.stringify(data)
       })
     .then(response => response.text())
     .then(result => {
-      const token= JSON.parse(result);
-      if (token.accessToken) {
-        localStorage.setItem('spotsToken', token.accessToken);
+      const parsedRes= JSON.parse(result);
+      if (parsedRes.accessToken) {
+        localStorage.setItem('spotsToken', parsedRes.accessToken);
         router.push('/');
-        toast.success('Login berhasil');
-    }
+        toast.success(parsedRes.message);
+      } else toast.error(parsedRes.message);
     })
     .catch(error => {
-      console.log('error', error)
-      toast.error('Akun atau password salah')
+      console.log('error', error);
+      toast.error('Akun atau password salah');
     });
   }
 
@@ -41,7 +41,7 @@ const Login = () => {
       <title>Login</title>
       <Toaster/>
       <FaWindowClose 
-        className='bg-blue-950 absolute top-4 left-4 w-5 h-5 cursor-pointer'
+        className='bg-red-400 absolute top-4 left-4 w-5 h-5 cursor-pointer'
         onClick={
           e => {
             e.preventDefault();

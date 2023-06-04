@@ -4,6 +4,7 @@ import {useState } from 'react'
 import Image from 'next/image'
 import { useRouter } from "next/navigation"
 import { Toaster, toast } from 'react-hot-toast'
+import { FaWindowClose } from 'react-icons/fa'
 
 const Signup = () => {
     const [firstName, setFirstName] = useState('');
@@ -28,8 +29,11 @@ const Signup = () => {
           })
         .then(response => response.text())
         .then(result => {
-            toast.success('Daftar akun berhasil');
-            router.push('/login');
+            const parsedRes= JSON.parse(result);
+            if (parsedRes.user){
+                toast.success('Daftar akun berhasil');
+                router.push('/login');
+            } else toast.error(parsedRes.message);
         })
         .catch(error => {
             console.log('error', error)
@@ -41,7 +45,14 @@ const Signup = () => {
         <div className='h-screen'>
             <title>Sign Up</title>
             <Toaster/>
-
+            <FaWindowClose 
+                className='bg-red-400 absolute top-4 right-4 w-5 h-5 cursor-pointer'
+                onClick={
+                e => {
+                    e.preventDefault();
+                    router.push('/');
+                }
+            }/>
             <div className="bg-blue-950 grid lg:grid-cols-2 h-full">  
                 <div className='m-auto'>
                     <Image src="/spots.png" alt='logo'

@@ -10,6 +10,8 @@ const ListTransaksi = () => {
 
     const [token, setToken] = useState(null);
     const [transactionResult, setTransactionResult] = useState(null);
+
+    const [isDataFetched, setIsDataFetched] = useState(false);
     
     useEffect(() => {
         setToken(localStorage.getItem('spotsToken'));
@@ -22,6 +24,8 @@ const ListTransaksi = () => {
             const json = await data.json();
 
             setTransactionResult(json.bookings);
+
+            setIsDataFetched(true);
         } 
 
         if(token){
@@ -29,26 +33,58 @@ const ListTransaksi = () => {
                 .catch(error => {
                 console.log('error', error);
                 localStorage.removeItem('spotsToken');
-                toast.error('Login terlebih dahulu')
+                toast.error('Login terlebih dahulu!')
                 router.push('/');
             });
         }
     },[token])
 
-    const blockColor = (status) => {
-        let color = 'bg-red-400';
+    const bookingCallback = (booking_id) => {
+        const callback = async () =>{
+            const header = await {'Authorization': 'Bearer ' + token};
+            const data = await fetch ('https://api.spotscoworking.live/bookings?order_id=' + booking_id, 
+                {headers: header})
+            const json = await data.json();
+            console.log(json)
+        } 
+
+        if(token){
+            callback()
+                .catch(error => {
+                console.log('error', error);
+                //localStorage.removeItem('spotsToken');
+                toast.error('Konfirmasi gagal')
+                router.refresh();
+            });
+        }
+    }
+
+    const blockColor = (status, booking_id) => {
+        let color = 'bg-yellow-400';
 
         if(status === 'settlement'){
             color = 'bg-green-400';
+            return (
+                <div className={'rounded-full px-6 py-3 ' + color}>
+                    {'Berhasil'}
+                </div>
+            )
         } else if(status === 'pending'){
             color = 'bg-orange-400';
+            return (
+                <div className={'rounded-full px-6 py-3 ' + color}>
+                    {'Pending'}
+                </div>
+            )
+        } else {
+            return (
+                <div className={'cursor-pointer rounded-full px-6 py-3 ' + color}
+                    onClick={bookingCallback(booking_id)}
+                >
+                    {'Konfirmasi di sini'}
+                </div>
+            )
         }
-
-        return (
-            <div className={'rounded-full px-6 py-3 ' + color}>
-                {status || 'belum dibayar'}
-            </div>
-        )
     }
 
     return (
@@ -62,7 +98,7 @@ const ListTransaksi = () => {
         <p className='text-center bg-white text-3xl text-[#17224D] py-8 pl-12 font-bold'>
             Daftar Transaksi</p>
         <div className='bg-white flex justify-center'>
-            <table className='w-11/12'>
+            <table className='md:w-11/12 mb-10'>
                 <thead>
                     <tr className='w-full text-center bg-[#17224D] font-bold'>
                         <th className='w-1/5'>Nomor Transaksi</th>
@@ -72,12 +108,12 @@ const ListTransaksi = () => {
                         <th className='w-1/5'>Status Trnsaksi</th>
                     </tr>
                 </thead>
-                <tbody className='font-semibold text-center text-black bg-gray-300'>
-                   
-                    {transactionResult && transactionResult.map(transaction =>{
-                        return(
-                            <tr key={transaction.booking_id}>
-                                <td>{transaction.booking_id}</td>
+                <tbody className='font-semibold text-center text-xs md:text-base text-black bg-gray-300'>
+                   {isDataFetched && transactionResult &&
+                        transactionResult.map(transaction =>{
+                           return(
+                               <tr key={transaction.booking_id}>
+                                <td className='px-2'>{transaction.booking_id}</td>
                                 <td>{transaction.date}</td>
                                 <td>{transaction.coworking_space.name}</td>
                                 <td>
@@ -85,51 +121,23 @@ const ListTransaksi = () => {
                                     {transaction.payment && transaction.payment.amount || 'belum dibayar'}
                                 </td>
                                 <td className='p-4'>
-                                    {blockColor(transaction.payment && transaction.payment.status)}
-                                    {/* <div className={'rounded-full px-6 py-3 bg-orange-400'}>
-                                        {transaction.payment && transaction.payment.status || 'belum dibayar'}</div> */}
+                                    {blockColor(transaction.payment && transaction.payment.status, transaction.booking_id)}
                                 </td>
                             </tr>
                         )
-                        })
-                    }
-
-                    {/* <tr className=''>
-                        <td>TNS-220720</td>
-                        <td>20 Juli 2023</td>
-                        <td>Cowork</td>
-                        <td>Rp. 150.000</td>
-                        <td className='p-4'>
-                            <div className='rounded-full px-6 py-3 bg-green-400'>Transaksi Berhasil</div>
-                        </td>
-                    </tr>
-                    <tr className=''>
-                        <td>TNS-220602</td>
-                        <td>30 Juni 2022</td>
-                        <td>Xwork</td>
-                        <td>Rp. 350.500</td>
-                        <td className='p-4'>
-                            <div className='rounded-full px-6 py-3 bg-green-400'>Transaksi Berhasil</div>
-                        </td>
-                    </tr>
-                    <tr className=''>
-                        <td>TNS-220427</td>
-                        <td>3 April 2023</td>
-                        <td>Ruangku</td>
-                        <td>Rp. 300.000</td>
-                        <td className='p-4'>
-                            <div className='rounded-full px-6 py-3 bg-red-400'>Transaksi Gagal</div>
-                        </td>
-                    </tr>
-                    <tr className=''>
-                        <td>TNS-220202</td>
-                        <td>2 Agustus 2022</td>
-                        <td>Ruang Kita</td>
-                        <td>Rp. 200.000</td>
-                        <td className='p-4'>
-                            <div className='rounded-full px-6 py-3 bg-green-400'>Transaksi Berhasil</div>
-                        </td>
-                    </tr> */}
+                    })}
+                        
+                    {isDataFetched && (transactionResult.length === 0)  &&
+                        <tr >
+                            <td></td>
+                            <td></td>
+                            <td className='px-2'>
+                                Anda belum pernah melakukan transaksi
+                            </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                     }
                 </tbody>
             </table>
         </div>

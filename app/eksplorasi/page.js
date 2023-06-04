@@ -37,8 +37,7 @@ const Eksplorasi = () => {
       const data = await fetch ('https://api.spotscoworking.live/coworking-spaces?search=' + keyWord)
       const json = await data.json();
 
-      setSpaceResult(json.coworkingSpaces); 
-      console.log(json)
+      setSpaceResult(json.coworkingSpaces);
     } 
   
     getSearchData()

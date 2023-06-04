@@ -84,7 +84,7 @@ const Edit = () => {
       </p>
       
 
-      <div className="bg-teal-200 grid py-20 items-center">
+      <div className="bg-teal-200 grid py-20 items-center my-10">
 
         <div className="px-20">
           <form action="" method="" 
@@ -95,44 +95,44 @@ const Edit = () => {
               }
             }>
             <div className='flex flex-row items-center'>
-              <p className='w-3/12 text-[#17224D] text-2xl font-bold'>Nama Depan</p>
+              <p className='w-3/12 text-[#17224D] text-l md:text-2xl font-bold'>Nama Depan</p>
               <input 
                 type="text" 
                 id="namaDepan" 
-                className="bg-transparent border border-[#17224D] rounded-2xl w-10/12 py-2 text-center text-black my-3 mr-10" 
+                className="bg-transparent border border-[#17224D] rounded-2xl w-10/12 py-2 text-center text-black my-3 md:mr-10" 
                 value={firstName}
                 onChange={(e) => SetFirstName(e.target.value)}
               ></input>
             </div>
 
             <div className='flex flex-row items-center'>
-              <p className='w-3/12 text-[#17224D] text-2xl font-bold'>Nama Belakang</p>
+              <p className='w-3/12 text-[#17224D] text-l md:text-2xl font-bold'>Nama Belakang</p>
               <input 
                 type="text" 
                 id="namaBelakang"  
-                className="bg-transparent border border-[#17224D] rounded-2xl w-10/12 py-2 text-center text-black my-3 mr-10" 
+                className="bg-transparent border border-[#17224D] rounded-2xl w-10/12 py-2 text-center text-black my-3 md:mr-10" 
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
               ></input>
             </div>
 
             <div className='flex flex-row items-center'>
-              <p className='w-3/12 text-[#17224D] text-2xl font-bold'>Email</p>
+              <p className='w-3/12 text-[#17224D] text-l md:text-2xl font-bold'>Email</p>
               <input 
                 type="email" 
                 id="email"  
-                className="bg-transparent border border-[#17224D] rounded-2xl w-10/12 py-2 text-center text-black my-3 mr-10"
+                className="bg-transparent border border-[#17224D] rounded-2xl w-10/12 py-2 text-center text-black my-3 md:mr-10"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               ></input>
             </div>
 
             <div className='flex flex-row items-center'>
-              <p className='w-3/12 text-[#17224D] text-2xl font-bold'>Nomor Telepon</p>
+              <p className='w-3/12 text-[#17224D] text-l md:text-2xl font-bold'>Nomor Telepon</p>
               <input 
                 type="number" 
                 id="noTel"  
-                className="bg-transparent border border-[#17224D] rounded-2xl w-10/12 py-2 text-center text-black my-3 mr-10
+                className="bg-transparent border border-[#17224D] rounded-2xl w-10/12 py-2 text-center text-black my-3 md:mr-10
                   [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" 
                 value={noTel}
                 onChange={(e) => setNoTel(e.target.value)}  
@@ -140,7 +140,7 @@ const Edit = () => {
             </div>
             
             <div className='flex flex-row items-center'>
-              <p className='w-3/12 text-[#17224D] text-2xl font-bold'>Foto</p>
+              <p className='w-3/12 text-[#17224D] text-l md:text-2xl font-bold'>Foto</p>
               <div className='rounded-xl bg-slate-400 h-20 w-8/12 border-dashed border-2 m-5'>
                 <input 
                   type="file" 
@@ -151,14 +151,18 @@ const Edit = () => {
                   />
               </div>
             </div>
+
+            <p className='text-[#17224D]'>
+              *Anda tidak harus update semua data
+            </p>
             
             <div className='flex justify-center'>
               <button type="submit" className="block bg-blue-950 border border-teal-200 hover:bg-blue-400 text-white font-semibold rounded-lg
-                  px-20 py-3 m-auto mt-10">
+                  md:px-20 px-12 py-3 m-auto mt-10">
                 Submit
               </button>
               <a className="block bg-white border border-teal-200 hover:bg-blue-400 text-blue-950 font-semibold rounded-lg
-                  px-20 py-3 m-auto mt-10" href='/profile'>
+                  md:px-20 px-12 py-3 m-auto mt-10" href='/profile'>
                 Kembali
               </a>
             </div>
