@@ -6,20 +6,21 @@ import Navbar from '../Navbar';
 import Card from '../components/listingCard'
 
 const Eksplorasi = () => {
-  const router = useRouter();
+  // const router = useRouter();
   
-  const [token, setToken] = useState(null);
   const [spaceResult, setSpaceResult] = useState(null);
-  const authorization = "Bearer " + token;
-  const header = {'Authorization': authorization};
+  const [keyWord, setKeyWord] = useState('');
+  // const [token, setToken] = useState(null);
+  // const authorization = "Bearer " + token;
+  // const header = {'Authorization': authorization};
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setToken(localStorage.getItem('spotsToken') ? localStorage.getItem('spotsToken') : null);
-    }
+    // if (typeof window !== 'undefined') {
+    //   setToken(localStorage.getItem('spotsToken') ? localStorage.getItem('spotsToken') : null);
+    // }
 
     const getData = async () =>{
-      const data = await fetch ('https://api.spotscoworking.live/coworking-spaces', {headers: header})
+      const data = await fetch ('https://api.spotscoworking.live/coworking-spaces')
       const json = await data.json();
 
       setSpaceResult(json.coworkingSpaces); 
@@ -28,10 +29,23 @@ const Eksplorasi = () => {
     getData()
       .catch(error => {
         console.log('error', error);
-        localStorage.removeItem('spotsToken');
-        router.push('/');
       });
   },[])
+
+  const search = () => {
+    const getSearchData = async () =>{
+      const data = await fetch ('https://api.spotscoworking.live/coworking-spaces?search=' + keyWord)
+      const json = await data.json();
+
+      setSpaceResult(json.coworkingSpaces); 
+      console.log(json)
+    } 
+  
+    getSearchData()
+      .catch(error => {
+        console.log('error', error);
+      });
+  }
 
   return (
     <div>
@@ -43,45 +57,31 @@ const Eksplorasi = () => {
       <p className='bg-white text-2xl text-[#17224D] py-8 pl-12 font-bold'>
         Cari Workspace
       </p>
-      <div className="relative flex w-full flex-wrap">
+      <form className="relative mb-8 flex w-full flex-wrap"
+        onSubmit={ e => {
+            e.preventDefault();
+            search();
+          }
+        }>
         <input
-          type="search"
-          className="relative ml-12 block flex-auto rounded-full border border-solid border-neutral-300 bg-transparent bg-clip-padding px-5 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
-          placeholder="Cari Workspace"/>
+          type="text"
+          className="relative ml-12 block flex-auto rounded-full border border-solid border-neutral-300 bg-transparent bg-clip-padding px-5 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none"
+          placeholder="Cari Workspace"
+          value={keyWord}
+          onChange={(e) => setKeyWord(e.target.value)}/>
 
         <button
-          className="bg-[#17224D] mx-6 relative z-[2] rounded-full border-2 border-primary px-6 py-2 text-xs font-medium uppercase text-primary transition duration-150 ease-in-out hover:bg-green-500 focus:outline-none focus:ring-0"
-          type="button"
-          id="">
+          className="bg-[#17224D] ml-3 mr-12 relative z-[2] rounded-full border-2 border-primary px-6 py-2 text-xs font-medium uppercase text-primary transition duration-150 ease-in-out hover:bg-green-500 focus:outline-none focus:ring-0"
+          type="submit"
+          >
           Cari
         </button>
-      </div>
+      </form>
+      {spaceResult && (spaceResult.length === 0) && (keyWord !== '') &&
+        <p className='text-neutral-800 text-center text-xl mt-6'>
+          Tidak ada Coworking Space yang cocok dengan kata kunci
+        </p>}
 
-      <div className='flex py-2 my-5 items-center'>
-        <p className='text-[#17224D] pl-12 mr-4 font-bold'>
-          Urutkan berdasarkan </p>
-        <button
-          type="button"
-          className="rounded-xl border-2 border-[#17224D] px-3 py-1 mx-2 font-medium text-neutral-800 hover:bg-neutral-100 active:bg-green-300">
-          Jarak
-        </button>
-        <button
-          type="button"
-          className="rounded-xl border-2 border-[#17224D] px-3 py-1 mx-2 font-medium text-neutral-800 hover:bg-neutral-100 active:bg-green-300">
-          Rating
-        </button>
-        <button
-          type="button"
-          className="rounded-xl border-2 border-[#17224D] px-3 py-1 mx-2 font-medium text-neutral-800 hover:bg-neutral-100 active:bg-green-300">
-          Terbaru
-        </button>
-        <button
-          type="button"
-          className="rounded-xl border-2 border-[#17224D] px-3 py-1 mx-2 font-medium text-neutral-800 hover:bg-neutral-100 active:bg-green-300">
-        Populer
-        </button>
-      </div>
-      
       {spaceResult && spaceResult.map(space =>{
         return(
           <Card

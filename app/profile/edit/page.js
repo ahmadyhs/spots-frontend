@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import Navbar from '../../Navbar';
 import { useRouter } from 'next/navigation';
+import { Toaster, toast } from 'react-hot-toast';
 
 const Edit = () => {
   const router = useRouter();
@@ -21,34 +22,59 @@ const Edit = () => {
     setToken(localStorage.getItem('spotsToken'));
   },[])
 
-  const postData = async () =>{
+  //useEffect(() => {
+  const update = () => {
     const formData = new FormData();
-
+    
     if(image !== null) formData.append('avatarURL', image);
     if(firstName !== '') formData.append('firstName', firstName);
     if(lastName !== '') formData.append('lastName', lastName);
     if(email !== '') formData.append('email', email);
     if(noTel !== '') formData.append('phoneNumber', noTel);
+    
+    const getData = async () => {
+      await fetch ('https://api.spotscoworking.live/tenants/profile', {
+        method: 'PUT',
+        headers: header,
+        body: formData
+      })
+      
+      router.push('/profile');
+      toast.success('Update berhasil');
+    }
 
-    await fetch ('https://api.spotscoworking.live/tenants/profile', {
-      method: 'PUT',
-      headers: header,
-      body: formData
-    })
-    .then(response => response.text())
-    .then(result => {
-        router.push('/profile');
-    })
+    getData()
     .catch(error => {
       console.log('error', error);
       localStorage.removeItem('spotsToken');
       router.push('/');
-    });
+    })
   }
+  //}, [header])
+
+  // const postData = async () =>{
+
+  //   await fetch ('https://api.spotscoworking.live/tenants/profile', {
+  //     method: 'PUT',
+  //     headers: header,
+  //     body: formData
+  //   })
+  //   .then(response => response.text())
+  //   .then(result => {
+  //       router.push('/profile');
+  //       toast.success('Update berhasil');
+  //   })
+  //   .catch(error => {
+  //     console.log('error', error);
+  //     localStorage.removeItem('spotsToken');
+  //     router.push('/');
+  //   });
+  // }
 
   return (
     <div className='bg-white'>
       <title>Edit Profile</title>
+      <Toaster/>
       <div className='flex w-full flex-col items-center justify-between p-4 bg-white'>
       <Navbar/>
       </div>
@@ -65,7 +91,7 @@ const Edit = () => {
             onSubmit={
               e => {
               e.preventDefault();
-              postData();
+              update();
               }
             }>
             <div className='flex flex-row items-center'>

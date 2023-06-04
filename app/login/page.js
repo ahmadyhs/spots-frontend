@@ -3,11 +3,10 @@
 import Image from 'next/image'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-//import AuthContext from "../api/authContext";
+import { Toaster, toast } from 'react-hot-toast'
 
 const Login = () => {
   const router = useRouter();
-  //const context = useContext(AuthContext)
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -24,11 +23,10 @@ const Login = () => {
     .then(response => response.text())
     .then(result => {
       const token= JSON.parse(result);
-      //context.user = data.email;
       if (token.accessToken) {
         localStorage.setItem('spotsToken', token.accessToken);
-        console.log("Login Berhasil!");
         router.push('/');
+        toast.success('Login berhasil');
     }
     })
     .catch(error => console.log('error', error));
@@ -37,6 +35,7 @@ const Login = () => {
   return (
     <div className="h-screen">
       <title>Login</title>
+      <Toaster/>
       <div className="overflow-hidden bg-white grid lg:grid-cols-2 h-full">
         <div className="bg-white right flex h-fit justify-center flex-col text-center">
           <Image className="mx-auto scale-75" src="/spots-blue.png"
@@ -63,11 +62,6 @@ const Login = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}></input>
             </div>
-
-            {/* <div class="flex justify-between mx-10">
-            
-              <a href="" class="text-right font-semibold text-gray-700 hover:text-blue-700 focus:text-blue-700">Lupa Password?</a>
-            </div> */}
 
             <div className='flex justify-between mx-20 mb-10'>
               <button type="submit" className="block bg-blue-950 border hover:bg-blue-400 text-white font-semibold rounded-lg
