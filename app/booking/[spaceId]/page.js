@@ -17,6 +17,8 @@ const Booking = (
   const authorization = "Bearer " + token;
   const header = {'Authorization': authorization, 'Content-type': 'application/json'};
 
+  const [isDataFetched, setIsDataFetched] = useState(false);
+
   const [space, setSpace] = useState(null);
   const [date, setDate] = useState('');
   const [startHour, setStartHour] = useState('');
@@ -30,6 +32,7 @@ const Booking = (
       const json = await data.json();
 
       setSpace(json.coworkingSpace);
+      setIsDataFetched(true);
     }
 
     getData()
@@ -80,7 +83,7 @@ const Booking = (
       .catch(error => {
         console.log('error', error);
         localStorage.removeItem('spotsToken');
-        toast.error('Login dahulu')
+        toast.error('Login terlebih dahulu!')
         router.push('/');
       })
   }
@@ -99,8 +102,9 @@ const Booking = (
       
       <p className='bg-white text-l text-black pt-4 pb-8 pl-12'>Mohon cek ulang data yang dimasukkan</p>
 
+      { isDataFetched &&
       <form action="" method=""
-        className="grid w-11/12 m-auto mb-5 rounded-xl border-dashed border-2 border-black lg:grid-cols-2 py-5 items-center"
+      className="grid w-11/12 m-auto mb-5 rounded-xl border-dashed border-2 border-black lg:grid-cols-2 py-5 items-center"
         onSubmit={
           e => {
             e.preventDefault();
@@ -159,11 +163,11 @@ const Booking = (
         </div>
 
         <div className="right flex flex-col items-center">
-          <div className='px-10 mt-10 rounded-full'>
+          <div className='px-10 md:pr-10 mt-10 rounded-full '>
             {space &&
               <Image alt='room' 
-                src={space.coworking_space_images[0].image_url}  
-                className='rounded-xl'
+              src={space.coworking_space_images[0].image_url}  
+              className='rounded-xl'
                 width={500} height={500} />
               }
           </div>
@@ -172,6 +176,7 @@ const Booking = (
             Submit Booking</button>
         </div>
       </form>        
+      }
     </div>
   )
 }

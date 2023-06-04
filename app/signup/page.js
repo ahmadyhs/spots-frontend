@@ -3,6 +3,8 @@
 import {useState } from 'react'
 import Image from 'next/image'
 import { useRouter } from "next/navigation"
+import { Toaster, toast } from 'react-hot-toast'
+import { FaWindowClose } from 'react-icons/fa'
 
 const Signup = () => {
     const [firstName, setFirstName] = useState('');
@@ -26,15 +28,32 @@ const Signup = () => {
             body: JSON.stringify(data)
           })
         .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
+        .then(result => {
+            const parsedRes= JSON.parse(result);
+            if (parsedRes.user){
+                toast.success('Daftar akun berhasil');
+                router.push('/login');
+            } else toast.error(parsedRes.message);
+        })
+        .catch(error => {
+            console.log('error', error)
+            toast.error('Daftar akun gagal');
+        });
     }
 
     return(
-        <div>
+        <div className='h-screen'>
             <title>Sign Up</title>
-
-            <div className="bg-blue-950 grid lg:grid-cols-2 h-screen">  
+            <Toaster/>
+            <FaWindowClose 
+                className='bg-red-400 absolute top-4 right-4 w-5 h-5 cursor-pointer'
+                onClick={
+                e => {
+                    e.preventDefault();
+                    router.push('/');
+                }
+            }/>
+            <div className="bg-blue-950 grid lg:grid-cols-2 h-full">  
                 <div className='m-auto'>
                     <Image src="/spots.png" alt='logo'
                     width={735} height={691} priority/>
@@ -49,57 +68,56 @@ const Signup = () => {
                         <form action='' method='' onSubmit={e =>{
                             e.preventDefault();
                             register();
-                            router.push('/login');
                         }}>
                             <div>
                                 <input type="text" placeholder="Nama Depan" required 
-                                className="border rounded-xl w-10/12 py-2 text-center m-5"
+                                className="border rounded-xl w-10/12 py-2 text-center m-3"
                                 value={firstName}
                                 onChange={(e) => setFirstName(e.target.value)}/>
                             </div>
 
                             <div>
                                 <input type="text"  placeholder="Nama Belakang" required 
-                                className="border rounded-xl w-10/12 py-2 text-center m-5"
+                                className="border rounded-xl w-10/12 py-2 text-center m-3"
                                 value={lastName}
                                 onChange={(e) => setLastName(e.target.value)}/>
                             </div>
 
                             <div>
                                 <input type="email" placeholder="Alamat Email" required
-                                className="border rounded-xl w-10/12 py-2 text-center m-5"
+                                className="border rounded-xl w-10/12 py-2 text-center m-3"
                                 value={email} 
                                 onChange={(e) => setEmail(e.target.value)}/>
                             </div>
 
                             <div>
                                 <input type="password" placeholder="Kata Sandi" required
-                                className="border rounded-xl w-10/12 py-2 text-center m-5"
+                                className="border rounded-xl w-10/12 py-2 text-center m-3"
                                 value={password} onChange={(e) => setPassword(e.target.value)}/>
                             </div>
 
                             <div>
                                 <input type="password" placeholder="Ulangi Kata Sandi" required
-                                className="border rounded-xl w-10/12 py-2 text-center m-5"
+                                className="border rounded-xl w-10/12 py-2 text-center m-3"
                                 value={confirmPassword}
                                 onChange={(e) => setConfirmPassword(e.target.value)}/>
                             </div>
 
                             <div>
                                 <input type="text" placeholder="Nomor Telepon" required
-                                className="border rounded-xl w-10/12 py-2 text-center m-5"
+                                className="border rounded-xl w-10/12 py-2 text-center m-3"
                                 value={phoneNumber}
                                 onChange={(e) => setPhoneNumber (e.target.value)}/>
                             </div>
 
                             <div className='flex justify-evenly items-center'>
                                 <p>Daftar Sebagai</p>
-                                <select className="select select-bordered rounded-xl border-2 m-5 py-2 w-full max-w-xs text-center"
+                                <select className="select select-bordered rounded-xl border-2 m-3 py-2 w-full max-w-xs text-center"
                                     required
                                     value={userType}
                                     onChange={(e) => setUserType(e.target.value)}>
                                     <option value="TENANT">Penyewa</option>
-                                    <option value="OWNER">Penyedia</option>
+                                    {/* <option value="OWNER">Penyedia</option> */}
                                 </select>
                             </div>
                             

@@ -1,9 +1,10 @@
 'use client'
 
 import { useEffect, useState } from 'react';
-import Navbar from '../Navbar';
 import { useRouter } from 'next/navigation';
+import Navbar from '../Navbar';
 import Image from 'next/image';
+import { toast } from 'react-hot-toast';
 //import { useContext } from 'react';
 //import AuthContext from '../api/authContext';
 
@@ -20,6 +21,8 @@ const Profile = () => {
   const [email, setEmail] = useState('');
   const [picture, setPicture] = useState('');
 
+  const [isDataFetched, setIsDataFetched] = useState(false);
+
   useEffect(() => {
     setToken(localStorage.getItem('spotsToken'));
   }, [])
@@ -35,19 +38,21 @@ const Profile = () => {
       setPhoneNumber(user.phone_number);
       setEmail(user.email);
       setPicture(json.tenant.avatar_url);
-    } 
 
+      setIsDataFetched(true);
+    } 
     if(token){
       getData()
         .catch(error => {
           console.log('error', error);
           localStorage.removeItem('spotsToken');
           router.push('/');
+          toast.error('Anda belum login')
         });
-    }
+    } 
   },[header])
 
-  return (
+  return  (
     <div className='bg-white'>
       <title>User Profile</title>
       <div className='flex w-full flex-col items-center justify-between p-4 bg-white'>
@@ -58,33 +63,37 @@ const Profile = () => {
         User Profile
       </p>
       
-
-      <div className="bg-teal-200 grid lg:grid-cols-3 py-20 items-center">
+      { isDataFetched && 
+      <div className="bg-teal-200 grid lg:grid-cols-3 my-10 py-20 items-center">
         <div className="right flex flex-col items-center">
-          <div className='bg-white p-20 mt-10 rounded-full'>
-            <Image alt='profile-picture' src={picture || "/person.png"}  width={172} height={172} />
+          <div className='bg-slate-100 p-8 m-6 rounded-2xl'>
+            <Image 
+            alt='profile-picture' 
+            className='rounded-xl'
+            src={picture || "/person.png"}  
+            width={200} height={200} />
           </div>
         </div>
 
-        <div className="col-span-2">
+        <div className="md:col-span-2 mx-8 p-6 bg-slate-100 rounded-xl">
           <div className='grid grid-cols-2 items-center my-3'>
-            <p className='w-full text-[#17224D] text-2xl font-bold'>Nama Depan</p>
-            <p className='w-full text-[#17224D] text-2xl font-bold'>{firstName}</p>
+            <p className='w-full text-[#17224D] text-xl font-bold'>Nama Depan</p>
+            <p className='w-full text-[#17224D] text-xl font-bold'>{firstName}</p>
           </div>
 
           <div className='grid grid-cols-2 items-center my-3'>
-            <p className='w-full text-[#17224D] text-2xl font-bold'>Nama Belakang</p>
-            <p className='w-full text-[#17224D] text-2xl font-bold'>{lastName}</p>
+            <p className='w-full text-[#17224D] text-xl font-bold'>Nama Belakang</p>
+            <p className='w-full text-[#17224D] text-xl font-bold'>{lastName}</p>
           </div>
 
           <div className='grid grid-cols-2 items-center my-3'>
-            <p className='w-full text-[#17224D] text-2xl font-bold'>Email</p>
-            <p className='w-full text-[#17224D] text-2xl font-bold'>{email}</p>
+            <p className='w-full text-[#17224D] text-xl font-bold'>Email</p>
+            <p className='w-full text-[#17224D] text-xl font-bold'>{email}</p>
           </div>
 
           <div className='grid grid-cols-2 items-center my-3'>
-            <p className='w-full text-[#17224D] text-2xl font-bold'>Nomor Telepon</p>
-            <p className='w-full text-[#17224D] text-2xl font-bold'>{phoneNumber}</p>
+            <p className='w-full text-[#17224D] text-xl font-bold'>Nomor Telepon</p>
+            <p className='w-full text-[#17224D] text-xl font-bold'>{phoneNumber}</p>
           </div>
           <div className='flex items-center'>
             <a className=" bg-blue-950 border border-teal-200 hover:bg-blue-400 text-white font-semibold rounded-lg
@@ -92,6 +101,7 @@ const Profile = () => {
           </div>     
         </div>
       </div>  
+      }
     </div>
   )
 }
