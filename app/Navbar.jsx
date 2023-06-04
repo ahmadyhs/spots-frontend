@@ -14,7 +14,7 @@ const Navbar = () => {
         </Link>
         </div>
         
-        <div className='hidden w-full lg:inline-flex lg:flex-row lg:w-auto'>
+        <div className='inline-flex'>
           <div className='lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-col justify-center lg:h-auto'>
             <Link className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:text-green-600' href='/eksplorasi'>
                 Cari Coworking Space
