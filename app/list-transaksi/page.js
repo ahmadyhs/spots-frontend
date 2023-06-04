@@ -40,16 +40,19 @@ const ListTransaksi = () => {
     },[token])
 
     const bookingCallback = (booking_id) => {
-        const callback = async () =>{
+        const callbackDetail = async () =>{
             const header = await {'Authorization': 'Bearer ' + token};
             const data = await fetch ('https://api.spotscoworking.live/bookings?order_id=' + booking_id, 
                 {headers: header})
             const json = await data.json();
             console.log(json)
+
+            toast.success('Konfirmasi berhasil')
+            router.refresh();
         } 
 
         if(token){
-            callback()
+            callbackDetail()
                 .catch(error => {
                 console.log('error', error);
                 //localStorage.removeItem('spotsToken');
@@ -79,7 +82,12 @@ const ListTransaksi = () => {
         } else {
             return (
                 <div className={'cursor-pointer rounded-full px-6 py-3 ' + color}
-                    onClick={bookingCallback(booking_id)}
+                    onClick={
+                        e => {
+                            e.preventDefault();
+                            bookingCallback(booking_id);
+                        }
+                    }
                 >
                     {'Konfirmasi di sini'}
                 </div>

@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
-import getProfile from "../api/getProfile";
 
 const UserButton = () => {
   const router = useRouter();
