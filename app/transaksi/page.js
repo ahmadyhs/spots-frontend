@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Navbar from '../Navbar';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { Toaster, toast } from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 
 const Transaction = () => {
   const router = useRouter();
@@ -58,7 +58,7 @@ const Transaction = () => {
   return (
     <div className='bg-white'>
       <title>Transaksi</title>
-      <Toaster/>
+
       <div className='flex w-full flex-col items-center justify-between p-4 bg-white'>
         <Navbar/>
       </div>
@@ -136,7 +136,10 @@ const Transaction = () => {
             px-20 py-3 m-auto mt-8 text-center">Bayar</button>
 
           <Link type="submit" className="block bg-white border border-blue-950 hover:bg-blue-400 text-blue-950 font-semibold rounded-full
-            px-20 py-3 m-auto mt-5 text-center" href='/eksplorasi'>Batal</Link>
+            px-20 py-3 m-auto mt-5 text-center" 
+            href='/eksplorasi'>
+              Batal
+          </Link>
         </div>
         }
 

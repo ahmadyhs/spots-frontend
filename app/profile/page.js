@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import Navbar from '../Navbar';
 import Image from 'next/image';
 import { toast } from 'react-hot-toast';
+import Link from 'next/link';
 //import { useContext } from 'react';
 //import AuthContext from '../api/authContext';
 
@@ -96,8 +97,11 @@ const Profile = () => {
             <p className='w-full text-[#17224D] text-xl font-bold'>{phoneNumber}</p>
           </div>
           <div className='flex items-center'>
-            <a className=" bg-blue-950 border border-teal-200 hover:bg-blue-400 text-white font-semibold rounded-lg
-                  px-20 py-3 m-auto mt-10" href='/profile/edit'>Edit</a>
+            <Link className=" bg-blue-950 border border-teal-200 hover:bg-blue-400 text-white font-semibold rounded-lg
+              px-20 py-3 m-auto mt-10" 
+              href='/profile/edit'>
+                Edit
+              </Link>
           </div>     
         </div>
       </div>  

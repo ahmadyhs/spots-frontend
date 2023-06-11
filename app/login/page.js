@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { Toaster, toast } from 'react-hot-toast'
+import { toast } from 'react-hot-toast'
 import { FaWindowClose } from 'react-icons/fa'
 
 const Login = () => {
@@ -26,7 +26,13 @@ const Login = () => {
       const parsedRes= JSON.parse(result);
       if (parsedRes.accessToken) {
         localStorage.setItem('spotsToken', parsedRes.accessToken);
-        router.push('/');
+
+        if(parsedRes.userType === 'OWNER'){
+          router.push('/owner');
+        } else if(parsedRes.userType === 'ADMIN'){
+          router.push('/admin/penyewa');
+        }  else router.push('/');
+
         toast.success(parsedRes.message);
       } else toast.error(parsedRes.message);
     })
@@ -39,7 +45,7 @@ const Login = () => {
   return (
     <div className="h-screen">
       <title>Login</title>
-      <Toaster/>
+     
       <FaWindowClose 
         className='bg-red-400 absolute top-4 left-4 w-5 h-5 cursor-pointer'
         onClick={

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
-import { Toaster, toast } from "react-hot-toast";
+import { toast } from "react-hot-toast";
 
 const UserButton = () => {
   const router = useRouter();
@@ -37,7 +37,6 @@ const UserButton = () => {
     });
 
     localStorage.removeItem('spotsToken');
-    console.log()
     setToken(null);
     setIsOpen((value) => (!value));
     router.push('/');
@@ -60,7 +59,7 @@ const UserButton = () => {
 
   return ( 
     <div className='inline-flex'>
-      <Toaster/>
+      
 
       <div className='lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col justify-center lg:h-auto'>
         

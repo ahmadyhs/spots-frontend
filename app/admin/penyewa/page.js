@@ -1,66 +1,74 @@
-import Image from 'next/image';
+'use client'
 
-export default function Admin() {
+import { useEffect, useState } from 'react';
+
+const AdminPenyewa = () => {
+    const [token, setToken] = useState(null);
+    const header = {'Authorization': "Bearer " + token};
+    
+    const [tenantsResult, setTenantsResult] = useState(null);
+    const [isDataFetched, setIsDataFetched] = useState(false);
+    
+    useEffect(() => {
+        setToken(localStorage.getItem('spotsToken'));
+    }, [])
+
+    useEffect(() => {  
+        const getData = async () =>{
+            const data = await fetch (' https://api.spotscoworking.live/admin/tenants', {headers: header})
+            const json = await data.json();
+            const tenants = json.tenants;
+
+            setTenantsResult(tenants);
+            setIsDataFetched(true);
+        } 
+        if(token && !tenantsResult){
+            getData()
+            .catch(error => {
+                console.log('error', error);
+                localStorage.removeItem('spotsToken');
+                router.push('/');
+                toast.error('Anda belum login')
+            });
+        } 
+    },[header])
+
     return (
-        <body className="grid grid-cols-5">
-            <title>Admin</title>
-            <aside className="bg-[#17224D] h-screen grid place-content-between">
-                <div>
-                    <div class="right flex flex-col items-center">
-                        <div class="right flex flex-col items-center mt-10">
-                            <Image alt='logo' src="/spots.png"  width={200} height={200} />
-                        </div>
-                    </div>
-                    <p className='text-center m-5 text-3xl mb-10'>Admin</p>
-                    <button className="bg-slate-500 w-full text-white text-left font-semibold p-3 my-1 hover:bg-blue-600 active:bg-slate-500">Data Penyewa</button>
-                    <button className="bg-blue-500 w-full text-white text-left font-semibold p-3 my-1 hover:bg-blue-600 active:bg-slate-500">Data Penyedia</button>
-                    <button className="bg-blue-500 w-full text-white text-left font-semibold p-3 my-1 hover:bg-blue-600 active:bg-slate-500">Data Transaksi</button>
-                    <button className="bg-blue-500 w-full text-white text-left font-semibold p-3 my-1 hover:bg-blue-600 active:bg-slate-500">Data Coworking</button>
-                </div>
+        <main className="col-span-7 bg-white max-h-screen">
+            <div className='flex justify-center h-2/12'>
+                <p className='mt-10 text-black font-semibold text-3xl'>DATA PENYEWA</p>
+            </div>
 
-                <div className='mb-10'>
-                    <div className='flex flex-col items-center'>
-                        <button className="rounded border border-white bg-transparent w-5/6 text-white text-left font-semibold p-3 my-1 hover:bg-blue-600 active:bg-slate-500">← Keluar</button>
-                    </div>
-                </div>
-            </aside>
-            
+            <div className='justify-center h-10/12 block overflow-x-scroll'>
+                <table className="m-10 w-11/12 h-fit"> 
+                    <thead className='border-[#3C4158] border-2 flex w-full'>
+                        <tr className="bg-[#3C4158] items-center text-center flex w-full">
+                            <th className="p-2 w-1/12 ">ID</th>
+                            <th className="p-2 w-2/12 ">Nama Depan</th>
+                            <th className="p-2 w-2/12 ">Nama Belakang</th>
+                            <th className="p-2 w-4/12 ">Email</th>
+                            <th className="p-2 w-3/12 ">Nomor Telepon</th>
+                        </tr>
+                    </thead>
 
-            <main className="col-span-4 bg-white">
-                <div className='flex justify-center'>
-                    <p className='mt-10 text-black font-semibold text-3xl'>DATA PENYEWA</p>
-                </div>
-
-                <div className='flex justify-center'>
-                    <table className="m-10 w-11/12"> 
-                        <thead>
-                            <tr className="bg-[#3C4158] text-center">
-                                <th className="p-2 w-1/12 border border-black">ID</th>
-                                <th className="p-2 w-2/12 border border-black">Nama Depan</th>
-                                <th className="p-2 w-2/12 border border-black">Nama Belakang</th>
-                                <th className="p-2 w-4/12 border border-black">Email</th>
-                                <th className="p-2 w-3/12 border border-black">Nomor Telepon</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr className="text-black">
-                                <td className="p-2 border border-black"></td>
-                                <td className="p-2 border border-black"></td>
-                                <td className="p-2 border border-black"></td>
-                                <td className="p-2 border border-black"></td>
-                                <td className="p-2 border border-black"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div className="flex justify-evenly">
-                    <button className="bg-green-500 text-black font-semibold p-3 w-1/12 hover:bg-green-600 active:bg-green-700">Tambah</button>
-                    <button className="bg-yellow-300 text-black font-semibold p-3 w-1/12 hover:bg-yellow-400 active:bg-yellow-500">Edit</button>
-                    <button className="bg-red-500 text-black font-semibold p-3 w-1/12 hover:bg-red-600 active:bg-red-700">Hapus</button>
-                </div>
-            </main>
-            
-        </body>
+                    <tbody className='text-black border-[#3C4158] border-2 h-[70vh] flex flex-col items-center overflow-y-scroll w-full'>
+                        {isDataFetched && tenantsResult &&
+                            tenantsResult.map(tenants =>{
+                            return(
+                                <tr className='flex w-full' key={tenants.tenant_id}>
+                                    <td className='p-4 w-1/12 border text-center border-black'>{tenants.tenant_id}</td>
+                                    <td className='p-4 w-2/12 border border-black'>{tenants.user.first_name}</td>
+                                    <td className='p-4 w-2/12 border border-black'>{tenants.user.last_name}</td>
+                                    <td className='p-4 w-4/12 border border-black'>{tenants.user.email}</td>
+                                    <td className='p-4 w-3/12 border border-black'>{tenants.user.phone_number}</td>
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+                </table>
+            </div>
+        </main>
     )
 }
+
+export default AdminPenyewa

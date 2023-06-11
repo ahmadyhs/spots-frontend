@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Navbar from '../../Navbar';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import toast, { Toaster } from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 
 const Booking = (
   params
@@ -91,7 +91,7 @@ const Booking = (
   return (
     <div className='bg-white'>
       <title>Booking</title>
-      <Toaster/>
+
       <div className='flex w-full flex-col items-center justify-between p-4 bg-white'>
         <Navbar/>
       </div>
@@ -128,11 +128,11 @@ const Booking = (
             <p className='text-black font-semibold text-lg'>Tanggal</p>
             <div className='flex flex-row items-center'>
               <input type="date" name="" id=""  
-              className="bg-transparent border border-[#17224D] rounded-2xl w-full py-2 px-4 bg-slate-100 text-left text-black my-3" 
-              placeholder='Pilih Tanggal' 
-              required
-              onChange={(e) => setDate(e.target.value)}>
-            </input>
+                className="bg-transparent border border-[#17224D] rounded-2xl w-full py-2 px-4 bg-slate-100 text-left text-black my-3" 
+                placeholder='Pilih Tanggal' 
+                required
+                onChange={(e) => setDate(e.target.value)}>
+              </input>
             </div>
 
             <div className='flex justify-between'>

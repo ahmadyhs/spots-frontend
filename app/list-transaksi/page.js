@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Navbar from '../Navbar';
 import { useRouter } from 'next/navigation';
-import { Toaster, toast } from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 
 const ListTransaksi = () => {
     const router = useRouter();
@@ -47,8 +47,8 @@ const ListTransaksi = () => {
             const json = await data.json();
             console.log(json)
 
-            toast.success('Konfirmasi berhasil')
             router.refresh();
+            toast.success('Konfirmasi berhasil')
         } 
 
         if(token){
@@ -98,7 +98,7 @@ const ListTransaksi = () => {
     return (
         <div className='bg-white'>
         <title>Riwayat Transaksi</title>
-        <Toaster/>
+
         <div className='flex w-full flex-col items-center justify-between p-4 bg-white'>
             <Navbar/>
         </div>
@@ -113,7 +113,7 @@ const ListTransaksi = () => {
                         <th className='w-1/5'>Tanggal Transaksi</th>
                         <th className='w-1/5'>Nama Coworking Space</th>
                         <th className='w-1/5'>Harga</th>
-                        <th className='w-1/5'>Status Trnsaksi</th>
+                        <th className='w-1/5'>Status Transaksi</th>
                     </tr>
                 </thead>
                 <tbody className='font-semibold text-center text-xs md:text-base text-black bg-gray-300'>
