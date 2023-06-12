@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Navbar from '../../Navbar';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import toast, { Toaster } from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 
 const Booking = (
   params
@@ -14,8 +14,7 @@ const Booking = (
   const id = params.params.spaceId; 
 
   const [token, setToken] = useState(null);
-  const authorization = "Bearer " + token;
-  const header = {'Authorization': authorization, 'Content-type': 'application/json'};
+  const header = {'Authorization': 'Bearer ' + token, 'Content-type': 'application/json'};
 
   const [isDataFetched, setIsDataFetched] = useState(false);
 
@@ -63,8 +62,8 @@ const Booking = (
         body: JSON.stringify(data)
       })
       const intoJson = await res.json();
-      const bookingData = intoJson.data;
-      const bookingDetail = bookingData.booking;
+      const bookingData = await intoJson.data;
+      const bookingDetail = await bookingData.booking;
 
       const spaceName = space.name;
       const bookDuration = endHour - startHour;
@@ -74,7 +73,8 @@ const Booking = (
         '&start=' + startHour +
         '&end=' + endHour +
         '&name=' + spaceName +
-        '&spacePrice=' + spacePrice;
+        '&spacePrice=' + spacePrice +
+        '&spaceId=' + id;
       
       router.push(path);
     }
@@ -91,7 +91,7 @@ const Booking = (
   return (
     <div className='bg-white'>
       <title>Booking</title>
-      <Toaster/>
+
       <div className='flex w-full flex-col items-center justify-between p-4 bg-white'>
         <Navbar/>
       </div>
@@ -128,11 +128,11 @@ const Booking = (
             <p className='text-black font-semibold text-lg'>Tanggal</p>
             <div className='flex flex-row items-center'>
               <input type="date" name="" id=""  
-              className="bg-transparent border border-[#17224D] rounded-2xl w-full py-2 px-4 bg-slate-100 text-left text-black my-3" 
-              placeholder='Pilih Tanggal' 
-              required
-              onChange={(e) => setDate(e.target.value)}>
-            </input>
+                className="bg-transparent border border-[#17224D] rounded-2xl w-full py-2 px-4 bg-slate-100 text-left text-black my-3" 
+                placeholder='Pilih Tanggal' 
+                required
+                onChange={(e) => setDate(e.target.value)}>
+              </input>
             </div>
 
             <div className='flex justify-between'>
@@ -163,7 +163,7 @@ const Booking = (
         </div>
 
         <div className="right flex flex-col items-center">
-          <div className='px-10 md:pr-10 mt-10 rounded-full '>
+          <div className='px-10 md:pr-10 mt-10 rounded-full'>
             {space &&
               <Image alt='room' 
               src={space.coworking_space_images[0].image_url}  

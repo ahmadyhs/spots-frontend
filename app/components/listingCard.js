@@ -10,7 +10,7 @@ const Card = ({
 }) => {
 
   return( 
-  <div className='md:flex bg-gray-100 p-2 my-5 mx-12 border border-[#17224D] rounded-xl'>
+  <div className='md:flex bg-slate-100 p-2 my-5 mx-12 border border-[#17224D] rounded-xl'>
       <div className="md:w-2/5 p-5 flex justify-center">
         <img alt='room' src={image} className='max-h-full max-w-full rounded-xl' width={300} height={200} />
       </div>
@@ -34,14 +34,14 @@ const Card = ({
       
       <div className='md:w-1/5 px-2 flex md:items-center'>
         <div className='md:block flex justify-center items-center w-full'>
-          <Link className="md:block bg-teal-500 hover:bg-blue-400 text-white font-semibold rounded-full
-              px-10 py-3 my-3 md:mx-0 mx-4 md:w-full w-2/5 text-center cursor-pointer" 
+          <Link className="md:block flex justify-center bg-teal-500 hover:bg-blue-400 text-white font-semibold rounded-full
+              lg:px-10 py-3 my-3 md:mx-0 mx-4 md:w-full w-2/5 text-center cursor-pointer" 
               href={'/detail/' + id}>
-            Lihat Detail
+            Detail
           </Link>
 
-          <Link className="md:block bg-blue-950 hover:bg-blue-400 text-white font-semibold rounded-full
-              px-10 py-3 my-3 md:mx-0  mx-4 md:w-full w-2/5 text-center" 
+          <Link className="md:block flex justify-center bg-blue-950 hover:bg-blue-400 text-white font-semibold rounded-full
+              lg:px-10 py-3 my-3 md:mx-0 mx-4 md:w-full w-2/5 text-center" 
               href={'/booking/' + id}>
             Booking
           </Link>

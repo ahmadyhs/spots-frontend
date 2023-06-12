@@ -4,18 +4,27 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
-import { Toaster, toast } from "react-hot-toast";
+import { toast } from "react-hot-toast";
+import getProfile from "../api/getTenantProfile";
 
 const UserButton = () => {
   const router = useRouter();
   const [token, setToken] = useState(null);
-  const [picture, setPicture] = useState('/person.png');
+  const [picture, setPicture] = useState('/blank.png');
   const [isOpen, setIsOpen] = useState(false);
-  //const [isDataFetched, setIsDataFetched] = useState(false);
 
   useEffect(() => {
     setToken(localStorage.getItem('spotsToken'));
   },[])
+
+  useEffect(() => {
+    const getPicture = async () => {
+      const tenant = await getProfile(token);
+      if(tenant) setPicture(tenant.avatar_url)
+    }
+
+    if(token) getPicture();
+  },[token])
 
   const toggleOpen = useCallback( () => {
     setIsOpen((value) => (!value));
@@ -37,7 +46,6 @@ const UserButton = () => {
     });
 
     localStorage.removeItem('spotsToken');
-    console.log()
     setToken(null);
     setIsOpen((value) => (!value));
     router.push('/');
@@ -48,20 +56,8 @@ const UserButton = () => {
     router.push('/profile');
   }
 
-  // const getPicture = async () =>{
-  //   if(token){
-  //     let result =  await getProfile(token);
-  //     setPicture(result);
-  //     setIsDataFetched(true);
-  //   }
-  // }
-
-  //getPicture();
-
   return ( 
     <div className='inline-flex'>
-      <Toaster/>
-
       <div className='lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col justify-center lg:h-auto'>
         
           {token && 

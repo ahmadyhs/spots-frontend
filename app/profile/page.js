@@ -5,15 +5,13 @@ import { useRouter } from 'next/navigation';
 import Navbar from '../Navbar';
 import Image from 'next/image';
 import { toast } from 'react-hot-toast';
-//import { useContext } from 'react';
-//import AuthContext from '../api/authContext';
+import Link from 'next/link';
+import getProfile from '../api/getTenantProfile';
 
 const Profile = () => {
   const router = useRouter();
 
   const [token, setToken] = useState(null);
-  const authorization = "Bearer " + token;
-  const header = {'Authorization': authorization};
 
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -29,28 +27,27 @@ const Profile = () => {
 
   useEffect(() => {  
     const getData = async () =>{
-      const data = await fetch ('https://api.spotscoworking.live/tenants/profile', {headers: header})
-      const json = await data.json();
-      const user = json.tenant.user;
+      const profile = await getProfile(token);
+      const user = profile.user;
 
       setFirstName(user.first_name);
       setLastName(user.last_name);
       setPhoneNumber(user.phone_number);
       setEmail(user.email);
-      setPicture(json.tenant.avatar_url);
+      setPicture(profile.avatar_url);
 
       setIsDataFetched(true);
     } 
-    if(token){
+    if(token && !isDataFetched){
       getData()
         .catch(error => {
           console.log('error', error);
           localStorage.removeItem('spotsToken');
           router.push('/');
-          toast.error('Anda belum login')
+          toast.error('Anda belum login');
         });
     } 
-  },[header])
+  },[token])
 
   return  (
     <div className='bg-white'>
@@ -96,8 +93,11 @@ const Profile = () => {
             <p className='w-full text-[#17224D] text-xl font-bold'>{phoneNumber}</p>
           </div>
           <div className='flex items-center'>
-            <a className=" bg-blue-950 border border-teal-200 hover:bg-blue-400 text-white font-semibold rounded-lg
-                  px-20 py-3 m-auto mt-10" href='/profile/edit'>Edit</a>
+            <Link className=" bg-blue-950 border border-teal-200 hover:bg-blue-400 text-white font-semibold rounded-lg
+              px-20 py-3 m-auto mt-10" 
+              href='/profile/edit'>
+                Edit
+              </Link>
           </div>     
         </div>
       </div>  

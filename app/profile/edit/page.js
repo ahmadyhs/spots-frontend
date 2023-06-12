@@ -3,7 +3,8 @@
 import { useEffect, useState } from 'react';
 import Navbar from '../../Navbar';
 import { useRouter } from 'next/navigation';
-import { Toaster, toast } from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
+import Link from 'next/link';
 
 const Edit = () => {
   const router = useRouter();
@@ -44,11 +45,11 @@ const Edit = () => {
     }
 
     getData()
-    .catch(error => {
-      console.log('error', error);
-      localStorage.removeItem('spotsToken');
-      router.push('/');
-    })
+      .catch(error => {
+        console.log('error', error);
+        localStorage.removeItem('spotsToken');
+        router.push('/');
+      })
   }
   //}, [header])
 
@@ -74,7 +75,7 @@ const Edit = () => {
   return (
     <div className='bg-white'>
       <title>Edit Profile</title>
-      <Toaster/>
+
       <div className='flex w-full flex-col items-center justify-between p-4 bg-white'>
       <Navbar/>
       </div>
@@ -161,10 +162,11 @@ const Edit = () => {
                   md:px-20 px-12 py-3 m-auto mt-10">
                 Submit
               </button>
-              <a className="block bg-white border border-teal-200 hover:bg-blue-400 text-blue-950 font-semibold rounded-lg
-                  md:px-20 px-12 py-3 m-auto mt-10" href='/profile'>
+              <Link className="block bg-white border border-teal-200 hover:bg-blue-400 text-blue-950 font-semibold rounded-lg
+                  md:px-20 px-12 py-3 m-auto mt-10" 
+                  href='/profile'>
                 Kembali
-              </a>
+              </Link>
             </div>
                                   
           </form>        

@@ -3,7 +3,7 @@
 import {useState } from 'react'
 import Image from 'next/image'
 import { useRouter } from "next/navigation"
-import { Toaster, toast } from 'react-hot-toast'
+import { toast } from 'react-hot-toast'
 import { FaWindowClose } from 'react-icons/fa'
 
 const Signup = () => {
@@ -44,7 +44,7 @@ const Signup = () => {
     return(
         <div className='h-screen'>
             <title>Sign Up</title>
-            <Toaster/>
+       
             <FaWindowClose 
                 className='bg-red-400 absolute top-4 right-4 w-5 h-5 cursor-pointer'
                 onClick={
@@ -104,8 +104,8 @@ const Signup = () => {
                             </div>
 
                             <div>
-                                <input type="text" placeholder="Nomor Telepon" required
-                                className="border rounded-xl w-10/12 py-2 text-center m-3"
+                                <input type="number" placeholder="Nomor Telepon" required
+                                className="border rounded-xl w-10/12 py-2 text-center m-3 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                                 value={phoneNumber}
                                 onChange={(e) => setPhoneNumber (e.target.value)}/>
                             </div>
@@ -117,7 +117,7 @@ const Signup = () => {
                                     value={userType}
                                     onChange={(e) => setUserType(e.target.value)}>
                                     <option value="TENANT">Penyewa</option>
-                                    {/* <option value="OWNER">Penyedia</option> */}
+                                    <option value="OWNER">Penyedia</option>
                                 </select>
                             </div>
                             

@@ -4,8 +4,11 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 
-const AddCoworkingSpace = () => {
+const UpdateSpace = (
+    params
+) => {
     const router = useRouter();
+    const id = params.params.spaceId;
     
     const [token, setToken] = useState(null);
     const header = {'Authorization': "Bearer " + token};
@@ -25,47 +28,6 @@ const AddCoworkingSpace = () => {
         setToken(localStorage.getItem('spotsToken'));
     },[])
 
-    const submitData = () => {
-        const formData = new FormData();
-        
-        formData.append('name', name);
-        formData.append('description', desc);
-        formData.append('price', price);
-        formData.append('capacity', capacity);
-        formData.append('address', address);
-        formData.append('spaceURLs', image);
-        formData.append('latitude', '-5');
-        formData.append('longitude', '100');
-        formData.append('facilities', facilities.response.join());
-        
-        const addSpace = async () => {
-            const data = await fetch ('https://api.spotscoworking.live/coworking-spaces', {
-                method: 'POST',
-                headers: header,
-                body: formData
-            })
-            const json = await data.json();
-
-            if(json.message === 'Add coworking space success'){
-                router.push('/owner/coworking-space');
-                toast.success(json.message);
-            } else {
-                toast(json.message);
-            }
-            
-        }
-
-        if(token){
-            addSpace()
-                .catch(error => {
-                console.log('error', error);
-                localStorage.removeItem('spotsToken');
-                router.push('/');
-                toast.error('Tambah space gagal')
-            })
-        }
-    }
-
     const handleChange = (e) => {
         const { value, checked } = e.target;
         const { languages } = facilities;
@@ -84,8 +46,41 @@ const AddCoworkingSpace = () => {
         }
     }
 
+    const submitData = () => {
+        const formData = new FormData();
+        
+        if(name !== '') formData.append('name', name);
+        if(desc !== '') formData.append('description', desc);
+        if(price !== '') formData.append('price', price);
+        if(capacity !== '') formData.append('capacity', capacity);
+        if(address !== '') formData.append('address', address);
+        if(image) formData.append('spaceURLs', image);
+        if(facilities.response.length !== 0) formData.append('facilities', facilities.response.join());
+        
+        const updateSpace = async () => {
+            await fetch ('https://api.spotscoworking.live/coworking-spaces/' + id, {
+                method: 'PUT',
+                headers: header,
+                body: formData
+            })
+            
+            router.push('/owner/coworking-space');
+            toast.success('Update berhasil');
+        }
+
+        if(token){
+            updateSpace()
+                .catch(error => {
+                console.log('error', error);
+                localStorage.removeItem('spotsToken');
+                router.push('/');
+                toast.error('Update gagal')
+            })
+        }
+    }
+
     return (
-        <main className="md:col-span-6 col-span-8 bg-white max-h-screen">
+        <main className="col-span-7">
             <form className="block"
                 onSubmit={
                     e => {
@@ -94,17 +89,16 @@ const AddCoworkingSpace = () => {
                     }
                 }>
                 <div className='flex justify-center'>
-                    <p className='mt-10 mb-5 text-black font-semibold text-3xl text-center'>DAFTAR COWORKING SPACE</p>
+                    <p className='mt-10 mb-5 text-black font-semibold text-3xl'>UPDATE DATA SPACE</p>
                 </div>
 
                 <div className='flex justify-center'>
                     <div className='w-8/12 flex justify-center items-center'>
                         <p className='text-black text-xl w-4/12'>Nama Tempat</p>
                         <input type="text" id="" name="" 
-                            className="border rounded-xl w-8/12 py-2 text-center my-3 mx-5 text-black"
+                            className="border rounded-xl w-8/12 py-2 text-center m-5 text-black"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
-                            required
                             />
                     </div>
                 </div>
@@ -113,10 +107,9 @@ const AddCoworkingSpace = () => {
                     <div className='w-8/12 flex justify-center items-center'>
                         <p className='text-black text-xl w-4/12'>Deskripsi</p>
                         <input type="text" id="" name=""
-                            className="border rounded-xl w-8/12 py-2 text-center my-3 mx-5 text-black"
+                            className="border rounded-xl w-8/12 py-2 text-center m-5 text-black"
                             value={desc}
                             onChange={(e) => setDesc(e.target.value)}
-                            required
                             />
                     </div>
                 </div>
@@ -125,10 +118,9 @@ const AddCoworkingSpace = () => {
                     <div className='w-8/12 flex justify-center items-center'>
                         <p className='text-black text-xl w-4/12'>Harga per jam</p>
                         <input type="number" id="" name="" 
-                                className="border rounded-xl w-8/12 py-2 text-center my-3 mx-5 text-black"
+                                className="border rounded-xl w-8/12 py-2 text-center m-5 text-black"
                                 value={price}
                                 onChange={(e) => setPrice(e.target.value)}
-                                required
                                 />
                     </div>
                 </div>
@@ -137,10 +129,9 @@ const AddCoworkingSpace = () => {
                     <div className='w-8/12 flex justify-center items-center'>
                         <p className='text-black text-xl w-4/12'>Kapasitas orang</p>
                         <input type="number" id="" name="" 
-                                className="border rounded-xl w-8/12 py-2 text-center my-3 mx-5 text-black"
+                                className="border rounded-xl w-8/12 py-2 text-center m-5 text-black"
                                 value={capacity}
                                 onChange={(e) => setCapacity(e.target.value)}
-                                required
                                 />
                     </div>
                 </div>
@@ -149,10 +140,9 @@ const AddCoworkingSpace = () => {
                     <div className='w-8/12 flex justify-center items-center'>
                         <p className='text-black text-xl w-4/12'>Alamat Kota</p>
                         <input type="text" id="" name="" 
-                                className="border rounded-xl w-8/12 py-2 text-center my-3 mx-5 text-black"
+                                className="border rounded-xl w-8/12 py-2 text-center m-5 text-black"
                                 value={address}
                                 onChange={(e) => setAddress(e.target.value)}
-                                required
                                 />
                     </div>
                 </div>
@@ -160,11 +150,10 @@ const AddCoworkingSpace = () => {
                 <div className='flex justify-center'>
                     <div className='w-8/12 flex justify-center items-center'>
                         <p className='text-black text-xl w-4/12'>Foto</p>
-                        <div className='bg-slate-400 rounded-xl h-20 w-8/12 border-dashed border-2 my-3 mx-5'>
+                        <div className='bg-slate-400 rounded-xl h-20 w-8/12 border-dashed border-2 m-5'>
                             <input type="file" id="" name="" 
                                 className="p-6 h-full w-full text-black"
                                 onChange={(e) => setImage(e.target.files[0])}
-                                required
                                 />
                         </div>
                     </div>
@@ -306,5 +295,4 @@ const AddCoworkingSpace = () => {
         </main>
     )
 }
-
-export default AddCoworkingSpace
+export default UpdateSpace
