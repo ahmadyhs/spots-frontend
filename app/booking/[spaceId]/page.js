@@ -14,8 +14,7 @@ const Booking = (
   const id = params.params.spaceId; 
 
   const [token, setToken] = useState(null);
-  const authorization = "Bearer " + token;
-  const header = {'Authorization': authorization, 'Content-type': 'application/json'};
+  const header = {'Authorization': 'Bearer ' + token, 'Content-type': 'application/json'};
 
   const [isDataFetched, setIsDataFetched] = useState(false);
 
@@ -63,8 +62,8 @@ const Booking = (
         body: JSON.stringify(data)
       })
       const intoJson = await res.json();
-      const bookingData = intoJson.data;
-      const bookingDetail = bookingData.booking;
+      const bookingData = await intoJson.data;
+      const bookingDetail = await bookingData.booking;
 
       const spaceName = space.name;
       const bookDuration = endHour - startHour;
@@ -74,7 +73,8 @@ const Booking = (
         '&start=' + startHour +
         '&end=' + endHour +
         '&name=' + spaceName +
-        '&spacePrice=' + spacePrice;
+        '&spacePrice=' + spacePrice +
+        '&spaceId=' + id;
       
       router.push(path);
     }
@@ -163,7 +163,7 @@ const Booking = (
         </div>
 
         <div className="right flex flex-col items-center">
-          <div className='px-10 md:pr-10 mt-10 rounded-full '>
+          <div className='px-10 md:pr-10 mt-10 rounded-full'>
             {space &&
               <Image alt='room' 
               src={space.coworking_space_images[0].image_url}  

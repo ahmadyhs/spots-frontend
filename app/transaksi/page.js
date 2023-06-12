@@ -6,16 +6,19 @@ import Navbar from '../Navbar';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
+import getListtingById from '../api/getListingById';
 
 const Transaction = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
   const [token, setToken] = useState(null);
+  const [image, setImage] = useState(null);
   const authorization = "Bearer " + token;
   const header = {'Authorization': authorization, 'Content-type': 'application/json'};
   
   const props = {
+    spaceId : searchParams.get('spaceId'),
     bookingId : searchParams.get('bookingId'),
     spaceName: searchParams.get('name'),
     date: searchParams.get('date'),
@@ -25,7 +28,19 @@ const Transaction = () => {
     spacePrice: searchParams.get('spacePrice'),
     totalPrice: (searchParams.get('end') - searchParams.get('start')) * searchParams.get('spacePrice')
   };
-  
+
+  useEffect(() => {
+    const getSpace = async () => {
+      const space = await getListtingById(props.spaceId);
+      if(space.coworking_space_images){
+        setImage(space.coworking_space_images[0].image_url);
+      }
+    }
+
+    getSpace();
+    setToken(localStorage.getItem('spotsToken'));
+  }, [])
+
   const payment = () => {
     const data = {'bookingId': props.bookingId}
     
@@ -51,10 +66,6 @@ const Transaction = () => {
       })
   }
 
-  useEffect(() => {
-    setToken(localStorage.getItem('spotsToken'));
-  }, [])
-
   return (
     <div className='bg-white'>
       <title>Transaksi</title>
@@ -70,7 +81,7 @@ const Transaction = () => {
             payment();
           }
         }>
-        <div className="bg-gray-200 grid w-11/12 m-auto rounded-xl border-dashed border-2 border-black lg:grid-cols-2 py-5 items-center">  
+        <div className="grid w-11/12 m-auto rounded-xl border-dashed border-2 border-black lg:grid-cols-2 py-5 items-center">  
           <div className="px-10">
             <p className='text-black font-bold text-2xl my-6'>Detail Transaksi</p>
               <div className='flex justify-between my-3'>
@@ -124,8 +135,14 @@ const Transaction = () => {
           </div>
 
           <div className="right flex flex-col items-center">
-            <div className='p-2 mt-10 '>
-              <Image alt='room' src="/room.png"  width={500} height={500} />
+            <div className='px-10 md:pr-10 mt-10 rounded-full'>
+              { image &&
+                <Image 
+                alt='room' 
+                className='rounded-xl'
+                src={image}  
+                width={500} height={500} />
+              }
             </div>
           </div>
         </div> 

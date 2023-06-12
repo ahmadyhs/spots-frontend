@@ -2,11 +2,10 @@ export default async function getListtingById(
     parameter
 ) {
     try{
-        const id = parameter.params.id
-        const data = await fetch ('https://api.spotscoworking.live/coworking-spaces/' + id)
+        const data = await fetch ('https://api.spotscoworking.live/coworking-spaces/' + parameter)
         const json = await data.json();
     
-        return json.coworkingSpaceS;
+        return json.coworkingSpace;
     } catch (error){
         throw new Error(error);
     }

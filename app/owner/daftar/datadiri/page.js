@@ -57,28 +57,7 @@ const UpdateDatadiri = () => {
     }
 
     return (
-        <main className="col-span-7">
-            {/* <aside className="bg-[#17224D] h-screen grid place-content-between">
-                <div>
-                    <div className="right flex flex-col items-center">
-                        <div className="right flex flex-col items-center mt-10">
-                            <Image alt='logo' src="/spots.png"  width={200} height={200} />
-                        </div>
-                    </div>
-                    <p className='text-center m-5 text-3xl mb-10'>Owner</p>
-                    <button className="bg-slate-500 w-full text-white text-left font-semibold p-3 my-1 hover:bg-blue-600 active:bg-slate-500">Data Owner</button>
-                    <button className="bg-blue-500 w-full text-white text-left font-semibold p-3 my-1 hover:bg-blue-600 active:bg-slate-500">Tambah Coworking Space</button>
-                    <button className="bg-blue-500 w-full text-white text-left font-semibold p-3 my-1 hover:bg-blue-600 active:bg-slate-500">Coworking Space</button>
-                </div>
-
-                <div className='mb-10'>
-                    <div className='flex flex-col items-center'>
-                        <button className="rounded border border-white bg-transparent w-5/6 text-white text-left font-semibold p-3 my-1 hover:bg-blue-600 active:bg-slate-500">← Keluar</button>
-                    </div>
-                </div>
-            </aside> */}
-            
-
+        <main className="md:col-span-6 col-span-8 bg-white max-h-screen">
             <form className="block"
                 onSubmit={
                     e => {

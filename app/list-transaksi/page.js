@@ -1,7 +1,7 @@
 'use client'
 
-import { useEffect, useState } from 'react';
 import Navbar from '../Navbar';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-hot-toast';
 
@@ -39,57 +39,23 @@ const ListTransaksi = () => {
         }
     },[token])
 
-    const bookingCallback = (booking_id) => {
-        const callbackDetail = async () =>{
-            const header = await {'Authorization': 'Bearer ' + token};
-            const data = await fetch ('https://api.spotscoworking.live/bookings?order_id=' + booking_id, 
-                {headers: header})
-            const json = await data.json();
-            console.log(json)
-
-            router.refresh();
-            toast.success('Konfirmasi berhasil')
-        } 
-
-        if(token){
-            callbackDetail()
-                .catch(error => {
-                console.log('error', error);
-                //localStorage.removeItem('spotsToken');
-                toast.error('Konfirmasi gagal')
-                router.refresh();
-            });
-        }
-    }
-
     const blockColor = (status, booking_id) => {
-        let color = 'bg-yellow-400';
-
         if(status === 'settlement'){
-            color = 'bg-green-400';
             return (
-                <div className={'rounded-full px-6 py-3 ' + color}>
+                <div className={'rounded-full px-6 py-3 bg-green-400'}>
                     {'Berhasil'}
                 </div>
             )
         } else if(status === 'pending'){
-            color = 'bg-orange-400';
             return (
-                <div className={'rounded-full px-6 py-3 ' + color}>
+                <div className={'rounded-full px-6 py-3 bg-orange-400'}>
                     {'Pending'}
                 </div>
             )
         } else {
             return (
-                <div className={'cursor-pointer rounded-full px-6 py-3 ' + color}
-                    onClick={
-                        e => {
-                            e.preventDefault();
-                            bookingCallback(booking_id);
-                        }
-                    }
-                >
-                    {'Konfirmasi di sini'}
+                <div className={'cursor-pointer rounded-full px-6 py-3 bg-red-400'}>
+                    {'Batal'}
                 </div>
             )
         }
@@ -117,7 +83,7 @@ const ListTransaksi = () => {
                     </tr>
                 </thead>
                 <tbody className='font-semibold text-center text-xs md:text-base text-black bg-gray-300'>
-                   {isDataFetched && transactionResult &&
+                   {isDataFetched  && transactionResult &&
                         transactionResult.map(transaction =>{
                            return(
                                <tr key={transaction.booking_id}>
@@ -135,7 +101,7 @@ const ListTransaksi = () => {
                         )
                     })}
                         
-                    {isDataFetched && (transactionResult.length === 0)  &&
+                    {isDataFetched  && (transactionResult.length === 0)  &&
                         <tr >
                             <td></td>
                             <td></td>

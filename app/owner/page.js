@@ -38,7 +38,7 @@ const Owner = () => {
     },[header])
 
     return (
-        <main className="col-span-7">
+        <main className="md:col-span-6 col-span-8 bg-white max-h-screen">
             <div>
                 <div className='flex justify-center'>
                     <p className='mt-10 mb-5 text-black font-semibold text-3xl'>DATA OWNER</p>

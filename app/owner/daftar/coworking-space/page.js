@@ -85,7 +85,7 @@ const AddCoworkingSpace = () => {
     }
 
     return (
-        <main className="col-span-7">
+        <main className="md:col-span-6 col-span-8 bg-white max-h-screen">
             <form className="block"
                 onSubmit={
                     e => {
@@ -94,14 +94,14 @@ const AddCoworkingSpace = () => {
                     }
                 }>
                 <div className='flex justify-center'>
-                    <p className='mt-10 mb-5 text-black font-semibold text-3xl'>DATA COWORKING SPACE</p>
+                    <p className='mt-10 mb-5 text-black font-semibold text-3xl text-center'>DAFTAR COWORKING SPACE</p>
                 </div>
 
                 <div className='flex justify-center'>
                     <div className='w-8/12 flex justify-center items-center'>
                         <p className='text-black text-xl w-4/12'>Nama Tempat</p>
                         <input type="text" id="" name="" 
-                            className="border rounded-xl w-8/12 py-2 text-center m-5 text-black"
+                            className="border rounded-xl w-8/12 py-2 text-center my-3 mx-5 text-black"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             required
@@ -113,7 +113,7 @@ const AddCoworkingSpace = () => {
                     <div className='w-8/12 flex justify-center items-center'>
                         <p className='text-black text-xl w-4/12'>Deskripsi</p>
                         <input type="text" id="" name=""
-                            className="border rounded-xl w-8/12 py-2 text-center m-5 text-black"
+                            className="border rounded-xl w-8/12 py-2 text-center my-3 mx-5 text-black"
                             value={desc}
                             onChange={(e) => setDesc(e.target.value)}
                             required
@@ -125,7 +125,7 @@ const AddCoworkingSpace = () => {
                     <div className='w-8/12 flex justify-center items-center'>
                         <p className='text-black text-xl w-4/12'>Harga per jam</p>
                         <input type="number" id="" name="" 
-                                className="border rounded-xl w-8/12 py-2 text-center m-5 text-black"
+                                className="border rounded-xl w-8/12 py-2 text-center my-3 mx-5 text-black"
                                 value={price}
                                 onChange={(e) => setPrice(e.target.value)}
                                 required
@@ -137,7 +137,7 @@ const AddCoworkingSpace = () => {
                     <div className='w-8/12 flex justify-center items-center'>
                         <p className='text-black text-xl w-4/12'>Kapasitas orang</p>
                         <input type="number" id="" name="" 
-                                className="border rounded-xl w-8/12 py-2 text-center m-5 text-black"
+                                className="border rounded-xl w-8/12 py-2 text-center my-3 mx-5 text-black"
                                 value={capacity}
                                 onChange={(e) => setCapacity(e.target.value)}
                                 required
@@ -149,7 +149,7 @@ const AddCoworkingSpace = () => {
                     <div className='w-8/12 flex justify-center items-center'>
                         <p className='text-black text-xl w-4/12'>Alamat Kota</p>
                         <input type="text" id="" name="" 
-                                className="border rounded-xl w-8/12 py-2 text-center m-5 text-black"
+                                className="border rounded-xl w-8/12 py-2 text-center my-3 mx-5 text-black"
                                 value={address}
                                 onChange={(e) => setAddress(e.target.value)}
                                 required
@@ -160,7 +160,7 @@ const AddCoworkingSpace = () => {
                 <div className='flex justify-center'>
                     <div className='w-8/12 flex justify-center items-center'>
                         <p className='text-black text-xl w-4/12'>Foto</p>
-                        <div className='bg-slate-400 rounded-xl h-20 w-8/12 border-dashed border-2 m-5'>
+                        <div className='bg-slate-400 rounded-xl h-20 w-8/12 border-dashed border-2 my-3 mx-5'>
                             <input type="file" id="" name="" 
                                 className="p-6 h-full w-full text-black"
                                 onChange={(e) => setImage(e.target.files[0])}

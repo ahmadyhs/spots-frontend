@@ -10,20 +10,24 @@ const Eksplorasi = () => {
   
   const [spaceResult, setSpaceResult] = useState(null);
   const [keyWord, setKeyWord] = useState('');
-  // const [token, setToken] = useState(null);
-  // const authorization = "Bearer " + token;
-  // const header = {'Authorization': authorization};
 
   useEffect(() => {
-    // if (typeof window !== 'undefined') {
-    //   setToken(localStorage.getItem('spotsToken') ? localStorage.getItem('spotsToken') : null);
-    // }
-
     const getData = async () =>{
-      const data = await fetch ('https://api.spotscoworking.live/coworking-spaces')
-      const json = await data.json();
+      const spaces = [];
+      for(let i = 1; i<6; i++){
+          const result = await fetch ('https://api.spotscoworking.live/coworking-spaces?page=' + i)
+          const json = await result.json();
+          const data = await json.coworkingSpaces;
 
-      setSpaceResult(json.coworkingSpaces); 
+          if(data.length === 0) break;
+
+          for(let j = 0; ; j++){
+              if(data[j]) spaces.push(data[j]);
+              else break;
+          }
+
+      }
+      setSpaceResult(spaces);
     } 
 
     getData()

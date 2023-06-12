@@ -40,25 +40,25 @@ const TransactionList = () => {
     const blockColor = (status) => {
         if(status === 'settlement'){
             return (
-                <div className={'rounded-full text-center px-6 py-3 bg-green-400'}>
+                <div className={'rounded-full text-center px-6 py-3 xl:w-40 w-full bg-green-400'}>
                     {'Approved'}
                 </div>
             )
         } else if(status === 'expire'){
             return (
-                <div className={'rounded-full text-center px-6 py-3 bg-red-400'}>
+                <div className={'rounded-full text-center px-6 py-3 xl:w-40 w-full bg-red-400'}>
                     {'Expire'}
                 </div>
             )
         } else if(status === null){
             return (
-                <div className={'rounded-full text-center px-6 py-3 bg-red-400'}>
+                <div className={'rounded-full text-center px-6 py-3 xl:w-40 w-full bg-red-400'}>
                     {'Belum bayar'}
                 </div>
             )
         } else {
             return (
-                <div className={'rounded-full text-center px-6 py-3 bg-yellow-400'}>
+                <div className={'rounded-full text-center px-6 py-3 xl:w-40 w-full bg-yellow-400'}>
                     {'Pending'}
                 </div>
             )
@@ -66,21 +66,21 @@ const TransactionList = () => {
     }
 
     return (
-        <main className="col-span-7 bg-white max-h-screen">
+        <main className="md:col-span-6 col-span-8 bg-white max-h-screen">
             <div className='flex justify-center h-1/12'>
-                <p className='mt-10 text-black font-semibold text-3xl'>DATA COWORKING SPACE</p>
+                <p className='mt-10 text-black font-semibold text-3xl text-center'>DATA TRANSAKSI</p>
             </div>
 
             <div className='justify-center h-11/12 block overflow-x-scroll'>
                 <table className="m-10 w-11/12 h-fit"> 
                     <thead className='border-[#3C4158] border-2 h-1/6 flex w-full'>
                         <tr className="bg-[#3C4158] text-center items-center flex w-full">
-                            <th className="p-2 w-40">ID</th>
-                            <th className="p-2 w-36">Nama Space</th>
-                            <th className="p-2 w-28">Tanggal</th>
-                            <th className="p-2 w-28">Jumlah Pembayaran</th>
-                            <th className="p-2 w-28">Metode Pembayaran</th>
-                            <th className="p-2 w-32">Status</th>
+                            <th className="p-2 lg:w-1/6 w-40">ID</th>
+                            <th className="p-2 lg:w-1/6 w-36">Nama Space</th>
+                            <th className="p-2 lg:w-1/6 w-28">Tanggal</th>
+                            <th className="p-2 lg:w-1/6 w-28">Jumlah Pembayaran</th>
+                            <th className="p-2 lg:w-1/6 w-28">Metode Pembayaran</th>
+                            <th className="p-2 xl:w-1/6 w-40">Status</th>
                         </tr>
                     </thead>
 
@@ -105,29 +105,29 @@ const TransactionList = () => {
                             transactionResult.map(transaction =>{
                             return(
                                 <tr className='flex w-full' key={transaction.booking_id}>
-                                    <td className='p-2 w-40 border border-black'>
+                                    <td className='p-2 lg:w-1/6 w-40 border border-black'>
                                         {transaction.booking_id}
                                     </td>
                                     
-                                    <td className='p-2 w-36 border border-black'>
+                                    <td className='p-2 lg:w-1/6 w-36 border border-black'>
                                         {transaction.coworking_space.name}
                                     </td>
                                     
-                                    <td className='p-2 w-28 border border-black'>
+                                    <td className='p-2 lg:w-1/6 w-28 border border-black'>
                                         {transaction.date}
                                     </td>
                                     
-                                    <td className='p-2 w-28 border border-black'>
+                                    <td className='p-2 lg:w-1/6 w-28 border border-black'>
                                         {transaction.payment && 'Rp. ' + transaction.payment.amount}
                                         {!transaction.payment && <p>Belum dibayar</p>}
                                     </td>
                                     
-                                    <td className='p-2 w-28 border border-black'>
+                                    <td className='p-2 lg:w-1/6 w-28 border border-black'>
                                         {transaction.payment && transaction.payment.method}
                                         {!transaction.payment && <p>Belum dibayar</p>}
                                     </td>
 
-                                    <td className='p-2 w-32 border flex justify-center items-center border-black'>
+                                    <td className='p-2 xl:w-1/6 w-40 border flex justify-center items-center border-black'>
                                         {transaction.payment && blockColor(transaction.payment.status)}
                                         {!transaction.payment && blockColor(null)}
                                     </td>

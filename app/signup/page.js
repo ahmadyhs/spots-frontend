@@ -104,8 +104,8 @@ const Signup = () => {
                             </div>
 
                             <div>
-                                <input type="text" placeholder="Nomor Telepon" required
-                                className="border rounded-xl w-10/12 py-2 text-center m-3"
+                                <input type="number" placeholder="Nomor Telepon" required
+                                className="border rounded-xl w-10/12 py-2 text-center m-3 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                                 value={phoneNumber}
                                 onChange={(e) => setPhoneNumber (e.target.value)}/>
                             </div>

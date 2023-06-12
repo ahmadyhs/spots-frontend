@@ -112,7 +112,7 @@ const AdminPenyedia = () => {
     }
 
     return (
-        <main className="col-span-7 bg-white max-h-screen">
+        <main className="lg:col-span-7 md:col-span-6 col-span-8 bg-white max-h-screen">
             <div className='flex justify-center h-2/12'>
                 <p className='mt-10 text-black font-semibold text-3xl'>DATA PENYEDIA</p>
             </div>
@@ -134,7 +134,7 @@ const AdminPenyedia = () => {
                         </tr>
                     </thead>
 
-                    <tbody className='text-black border-[#3C4158] border-2 h-[70vh] flex flex-col overflow-y-scroll w-fit'>
+                    <tbody className='text-black border-[#3C4158] border-2 h-[70vh] flex flex-col overflow-y-scroll w-full'>
                         {isDataFetched && ownersResult &&
                             ownersResult.map(owners =>{
                             return(
