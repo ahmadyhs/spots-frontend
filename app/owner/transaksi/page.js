@@ -84,7 +84,7 @@ const TransactionList = () => {
                         </tr>
                     </thead>
 
-                    <tbody className='text-black border-[#3C4158] border-2 h-[68vh] flex flex-col items-center overflow-y-scroll w-full'>
+                    <tbody className='text-black border-[#3C4158] border-2 h-[65vh] flex flex-col items-center overflow-y-scroll w-full'>
                         {isDataFetched && !transactionResult  &&
                             <tr className='flex w-full'>
                                 <td className='p-4 w-full'>

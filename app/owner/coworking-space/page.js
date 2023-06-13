@@ -98,7 +98,7 @@ const OwnerCoworking = () => {
                         </tr>
                     </thead>
 
-                    <tbody className='text-black border-[#3C4158] border-2 h-[70vh] flex flex-col items-center overflow-y-scroll w-full'>
+                    <tbody className='text-black border-[#3C4158] border-2 h-[65vh] flex flex-col items-center overflow-y-scroll w-full'>
                         {isDataFetched && !spacesResult  &&
                             <tr className='flex w-full'>
                                 <td className='p-4 w-full'>
@@ -153,7 +153,7 @@ const OwnerCoworking = () => {
 
                                     <td className='p-2 w-40 text-white flex justify-center items-center border border-black'>
                                         {spaces.location &&
-                                        <Link className={'rounded-full text-center h-fit px-10 py-3 bg-[#17224D]'}
+                                        <Link className={'rounded-full text-center h-fit px-10 py-3 bg-[#17224D] hover:bg-blue-400 active:bg-green-400'}
                                             href={'/owner/edit/' + spaces.location.space_id}>
                                             Edit
                                         </Link>

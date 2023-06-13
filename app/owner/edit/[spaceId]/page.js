@@ -80,8 +80,8 @@ const UpdateSpace = (
     }
 
     return (
-        <main className="col-span-7">
-            <form className="block"
+        <main className="md:col-span-6 col-span-8 max-h-screen">
+            <form className="block h-screen overflow-auto"
                 onSubmit={
                     e => {
                         e.preventDefault();

@@ -44,7 +44,7 @@ const Aside = () => {
   }
 
   return ( 
-    <aside className="lg:col-span-1 md:col-span-2 col-span-8 bg-[#17224D] md:h-screen md:grid block w-full place-content-between">
+    <aside className="md:col-span-2 col-span-8 bg-[#17224D] md:h-screen md:grid block w-full place-content-between">
       {/* {!isNotPhone &&
         <div className="md:flex block w-full bg-[#17224D] relative h-12">
           <Image 
@@ -60,7 +60,7 @@ const Aside = () => {
 
       {/* {(isOpen || isNotPhone) && */}
         <>
-        <div>
+        <div className="md:col-span-2">
             <div className="right flex flex-col items-center">
                 <div className="right flex flex-col items-center mt-5">
                     <Image 
@@ -84,7 +84,7 @@ const Aside = () => {
             </Link>
         </div>
 
-        <div className='mt-5 mb-10'>
+        <div className='mt-5 mb-10 md:col-span-2'>
             <div className='flex md:flex-col justify-center items-center'>
                 <button className="rounded border border-white bg-transparent w-5/6 text-white text-left font-semibold p-3 my-1 hover:bg-blue-600 active:bg-slate-500"
                   onClick={
