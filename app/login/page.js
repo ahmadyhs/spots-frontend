@@ -54,7 +54,7 @@ const Login = () => {
             router.push('/');
           }
         }/>
-      <div className=" bg-white grid lg:grid-cols-2 h-screen">
+      <div className=" bg-white grid lg:grid-cols-2 h-screen overflow-y-scroll">
         <div className="bg-white right flex h-screen justify-center flex-col text-center">
           <Image className="mx-auto my-0" src="/spots-blue.png"
           width={424} height={350} alt='logo' priority/>
@@ -82,11 +82,11 @@ const Login = () => {
             </div>
 
             <div className='flex justify-between mx-20 mb-10'>
-              <button type="submit" className="block bg-blue-950 border hover:bg-blue-400 text-white font-semibold rounded-lg
+              <button type="submit" className="block bg-blue-950 border hover:bg-blue-400 active:bg-green-400 text-white font-semibold rounded-lg
                     xl:px-20 px-12 py-3 mt-6">
                 Masuk
               </button>        
-              <a className="block bg-gray-100 border hover:bg-blue-400 text-blue-950 font-semibold rounded-lg
+              <a className="block bg-gray-100 border hover:bg-blue-400 active:bg-green-400 text-blue-950 font-semibold rounded-lg
                     xl:px-20 px-12 py-3 mt-6"
                     href='/signup'>  
                   Daftar
@@ -97,9 +97,9 @@ const Login = () => {
 
         <div className="md:visible invisible">
           <Image
-          className="h-full w-full"
-          src="/login.png"
-          width={770} height={1024} alt='cowork' priority/>           
+            className="h-full max-h-screen overflow-hidden w-full"
+            src="/login.png"
+            width={770} height={1024} alt='cowork' priority/>           
         </div>
       </div>
     </div>

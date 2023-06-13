@@ -72,7 +72,7 @@ const TransactionList = () => {
             </div>
 
             <div className='justify-center h-11/12 block overflow-x-scroll'>
-                <table className="m-10 w-11/12 h-fit"> 
+                <table className="mx-10 mt-10 mb-2 w-11/12 h-fit"> 
                     <thead className='border-[#3C4158] border-2 h-1/6 flex w-full'>
                         <tr className="bg-[#3C4158] text-center items-center flex w-full">
                             <th className="p-2 lg:w-1/6 w-40">ID</th>
@@ -84,7 +84,7 @@ const TransactionList = () => {
                         </tr>
                     </thead>
 
-                    <tbody className='text-black border-[#3C4158] border-2 h-[70vh] flex flex-col items-center overflow-y-scroll w-full'>
+                    <tbody className='text-black border-[#3C4158] border-2 h-[68vh] flex flex-col items-center overflow-y-scroll w-full'>
                         {isDataFetched && !transactionResult  &&
                             <tr className='flex w-full'>
                                 <td className='p-4 w-full'>

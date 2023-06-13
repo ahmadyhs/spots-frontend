@@ -64,7 +64,7 @@ const OwnerCoworking = () => {
         } else if(status === null){
             return (
                 <div className={'rounded-full text-center px-6 py-3 bg-red-400'}>
-                    {'Data Tidak Lengkap!'}
+                    {'Suspended'}
                 </div>
             )
         } else {
@@ -83,17 +83,17 @@ const OwnerCoworking = () => {
             </div>
 
             <div className='justify-center h-11/12 block overflow-x-scroll'>
-                <table className="m-10 w-11/12 h-fit"> 
+                <table className="mx-10 mt-10 w-11/12"> 
                     <thead className='border-[#3C4158] border-2 h-1/6 flex w-full'>
                         <tr className="bg-[#3C4158] text-center items-center flex w-full">
-                            <th className="p-2 xl:w-1/12 w-10">ID</th>
+                            <th className="p-2 2xl:w-1/12 w-10">ID</th>
                             {/* <th className="p-2 w-1/12 border border-black">Owner ID</th> */}
-                            <th className="p-2 xl:w-2/12 w-36">Nama</th>
-                            <th className="p-2 xl:w-1/12 w-20">Harga Sewa</th>
-                            <th className="p-2 xl:w-1/12 w-20">Kapasitas</th>
-                            <th className="p-2 xl:w-2/12 w-36">Lokasi</th>
-                            <th className="p-2 xl:w-3/12 w-60">Foto</th>
-                            <th className="p-2 xl:w-2/12 w-40">Status</th>
+                            <th className="p-2 2xl:w-2/12 w-36">Nama</th>
+                            <th className="p-2 2xl:w-1/12 w-20">Harga Sewa</th>
+                            <th className="p-2 2xl:w-1/12 w-20">Kapasitas</th>
+                            <th className="p-2 2xl:w-2/12 w-36">Lokasi</th>
+                            <th className="p-2 2xl:w-3/12 w-60">Foto</th>
+                            <th className="p-2 2xl:w-2/12 w-40">Status</th>
                             <th className="p-2 w-40">Edit</th>
                         </tr>
                     </thead>
@@ -119,23 +119,23 @@ const OwnerCoworking = () => {
                             spacesResult.map(spaces =>{
                             return(
                                 <tr className='flex w-full' key={spaces.name}>
-                                    <td className='p-2 xl:w-1/12 w-10 border border-black'>
+                                    <td className='p-2 2xl:w-1/12 w-10 border border-black'>
                                         {spaces.location && spaces.location.space_id}
                                         {!spaces.location && <p></p>}    
                                     </td>
                                     
-                                    <td className='p-2 xl:w-2/12 w-36 border border-black'>{spaces.name}</td>
+                                    <td className='p-2 2xl:w-2/12 w-36 border border-black'>{spaces.name}</td>
                                     
-                                    <td className='p-2 xl:w-1/12 w-20 border border-black'>{spaces.price}</td>
+                                    <td className='p-2 2xl:w-1/12 w-20 border border-black'>{spaces.price}</td>
                                     
-                                    <td className='p-2 xl:w-1/12 w-20 border border-black'>{spaces.capacity}</td>
+                                    <td className='p-2 2xl:w-1/12 w-20 border border-black'>{spaces.capacity}</td>
                                     
-                                    <td className='p-2 xl:w-2/12 w-36 border border-black'>
+                                    <td className='p-2 2xl:w-2/12 w-36 border border-black'>
                                         {spaces.location && spaces.location.address}
                                         {!spaces.location && <p>Tidak dideskripsikan</p>}
                                     </td>
 
-                                    <td className='p-2 xl:w-3/12 w-60 border border-black flex justify-center'>
+                                    <td className='p-2 2xl:w-3/12 w-60 border border-black flex justify-center'>
                                         {spaces.coworking_space_images[0] &&
                                         <Image 
                                             alt="foto"
@@ -146,7 +146,7 @@ const OwnerCoworking = () => {
                                         {!spaces.coworking_space_images[0] && <p>Belum upload foto</p>}
                                     </td>
 
-                                    <td className='p-2 xl:w-2/12 w-40 border flex justify-center items-center border-black'>
+                                    <td className='p-2 2xl:w-2/12 w-40 border flex justify-center items-center border-black'>
                                         {spaces.location && blockColor(spaces.status, spaces.location.space_id)}
                                         {!spaces.location && blockColor(null, 0)}
                                     </td>

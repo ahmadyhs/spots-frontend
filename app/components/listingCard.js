@@ -10,7 +10,7 @@ const Card = ({
 }) => {
 
   return( 
-  <div className='md:flex bg-slate-100 p-2 my-5 mx-12 border border-[#17224D] rounded-xl'>
+  <div className='md:flex bg-white p-2 my-5 mx-12 border-2 border-[#17224D] rounded-xl drop-shadow-md'>
       <div className="md:w-2/5 p-5 flex justify-center">
         <img alt='room' src={image} className='max-h-full max-w-full rounded-xl' width={300} height={200} />
       </div>
@@ -25,9 +25,9 @@ const Card = ({
               {place}
           </p>
         </div>
-        <div className='flex items-center pb-4'>
+        <div className='lg:flex items-center pb-4'>
           <p className='text-gray-400 text-xl px-2'>Mulai dari</p>
-          <p className='text-2xl font-bold text-teal-500 mt'>
+          <p className='text-2xl font-bold text-teal-500 px-2'>
               Rp {price}/Jam</p>
         </div>
       </div>

@@ -40,7 +40,7 @@ const AdminPenyewa = () => {
             </div>
 
             <div className='justify-center h-10/12 block overflow-x-scroll'>
-                <table className="m-10 w-11/12 h-fit"> 
+                <table className="mx-10 mt-10 w-11/12 h-fit"> 
                     <thead className='border-[#3C4158] border-2 flex w-full'>
                         <tr className="bg-[#3C4158] items-center text-center flex w-full">
                             <th className="p-2 w-1/12 ">ID</th>
