@@ -101,7 +101,7 @@ const AdminCoworking = () => {
         }  else {
             return (
                 <>
-                    <div className={'cursor-pointer my-2 text-center rounded-full px-6 py-3 bg-yellow-400'}
+                    <div className={'cursor-pointer my-2 text-center rounded-full px-6 py-3 bg-yellow-400 hover:bg-blue-400 active:bg-green-400'}
                         onClick={
                             e => {
                                 e.preventDefault();
@@ -112,7 +112,7 @@ const AdminCoworking = () => {
                         {'Approve'}
                     </div>
 
-                    <div className={'cursor-pointer my-2 text-center rounded-full px-6 py-3 bg-red-400'}
+                    <div className={'cursor-pointer my-2 text-center rounded-full px-6 py-3 bg-red-400 hover:bg-blue-400 active:bg-green-400'}
                         onClick={
                             e => {
                                 e.preventDefault();
@@ -128,7 +128,7 @@ const AdminCoworking = () => {
     }
 
     return (
-        <main className="lg:col-span-7 md:col-span-6 col-span-8 bg-white max-h-screen">
+        <main className="md:col-span-6 col-span-8 bg-white max-h-screen">
             <div className='flex justify-center h-1/12'>
                 <p className='mt-10 text-black font-semibold text-center text-3xl'>DATA COWORKING SPACE</p>
             </div>
@@ -153,14 +153,14 @@ const AdminCoworking = () => {
                             spacesResult.map(spaces =>{
                             return(
                                 <tr className='flex w-full' key={spaces.name}>
-                                    <td className='p-2 xl:w-1/12 w-10 border border-black'>
+                                    <td className='p-2 2xl:w-1/12 w-10 border border-black'>
                                         {spaces.location && spaces.location.space_id}
                                         {!spaces.location && <p></p>}    
                                     </td>
                                     <td className='p-2 xl:w-2/12 w-36 border border-black'>{spaces.name}</td>
                                     <td className='p-2 xl:w-2/12 w-28 border border-black'>Rp. {spaces.price}</td>
                                     <td className='p-2 xl:w-1/12 w-20 border border-black'>{spaces.capacity}</td>
-                                    <td className='p-2 xl:w-1/12 w-36 border border-black'>
+                                    <td className='p-2 xl:w-2/12 w-36 border border-black'>
                                         {spaces.location && spaces.location.address}
                                         {!spaces.location && <p>Tidak dideskripsikan</p>}
                                     </td>

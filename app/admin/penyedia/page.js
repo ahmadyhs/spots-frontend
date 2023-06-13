@@ -112,7 +112,7 @@ const AdminPenyedia = () => {
     }
 
     return (
-        <main className="lg:col-span-7 md:col-span-6 col-span-8 bg-white max-h-screen">
+        <main className="md:col-span-6 col-span-8 bg-white max-h-screen">
             <div className='flex justify-center h-2/12'>
                 <p className='mt-10 text-black font-semibold text-3xl'>DATA PENYEDIA</p>
             </div>
