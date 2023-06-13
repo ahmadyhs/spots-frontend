@@ -61,9 +61,20 @@ const Booking = (
         headers: header,
         body: JSON.stringify(data)
       })
+
+      if(res.status === 403){
+        localStorage.removeItem('spotsToken');
+        toast.error('Login terlebih dahulu!')
+        router.push('/');
+      } else if (res.status === 400) {
+        toast.error('Tidak bisa booking di hari yang sama!')
+      } else if (res.status === 404 && res.json().message === 'Availability not found') {
+        toast.error('Waktu tersebut tidak tersedia!')
+      }
       const intoJson = await res.json();
       const bookingData = await intoJson.data;
       const bookingDetail = await bookingData.booking;
+
 
       const spaceName = space.name;
       const bookDuration = endHour - startHour;
@@ -82,9 +93,6 @@ const Booking = (
     postBooking()
       .catch(error => {
         console.log('error', error);
-        localStorage.removeItem('spotsToken');
-        toast.error('Login terlebih dahulu!')
-        router.push('/');
       })
   }
 

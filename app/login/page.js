@@ -57,7 +57,7 @@ const Login = () => {
       <div className=" bg-white grid lg:grid-cols-2 h-screen overflow-y-scroll">
         <div className="bg-white right flex h-screen justify-center flex-col text-center">
           <Image className="mx-auto my-0" src="/spots-blue.png"
-          width={424} height={350} alt='logo' priority/>
+          width={302} height={250} alt='logo' priority/>
 
           <h2 className="text-black text-xl font-semibold text-center mb-10">Masuk ke akun Anda!</h2>
           
