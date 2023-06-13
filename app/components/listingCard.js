@@ -12,7 +12,11 @@ const Card = ({
   return( 
   <div className='md:flex bg-white p-2 my-5 mx-12 border-2 border-[#17224D] rounded-xl drop-shadow-md'>
       <div className="md:w-2/5 p-5 flex justify-center">
-        <img alt='room' src={image} className='max-h-full max-w-full rounded-xl' width={300} height={200} />
+        <img 
+          alt='room' 
+          src={image} 
+          className='aspect-video max-w-full rounded-xl' 
+          width={300} height={200} />
       </div>
       
       <div className='md:w-2/5 md:grid items-center py-8 mx-5'>

@@ -71,48 +71,48 @@ const Signup = () => {
                         }}>
                             <div>
                                 <input type="text" placeholder="Nama Depan" required 
-                                className="border rounded-xl w-10/12 py-2 text-center m-3"
+                                className="border rounded-xl w-10/12 py-2 text-center m-2"
                                 value={firstName}
                                 onChange={(e) => setFirstName(e.target.value)}/>
                             </div>
 
                             <div>
                                 <input type="text"  placeholder="Nama Belakang" required 
-                                className="border rounded-xl w-10/12 py-2 text-center m-3"
+                                className="border rounded-xl w-10/12 py-2 text-center m-2"
                                 value={lastName}
                                 onChange={(e) => setLastName(e.target.value)}/>
                             </div>
 
                             <div>
                                 <input type="email" placeholder="Alamat Email" required
-                                className="border rounded-xl w-10/12 py-2 text-center m-3"
+                                className="border rounded-xl w-10/12 py-2 text-center m-2"
                                 value={email} 
                                 onChange={(e) => setEmail(e.target.value)}/>
                             </div>
 
                             <div>
                                 <input type="password" placeholder="Kata Sandi" required
-                                className="border rounded-xl w-10/12 py-2 text-center m-3"
+                                className="border rounded-xl w-10/12 py-2 text-center m-2"
                                 value={password} onChange={(e) => setPassword(e.target.value)}/>
                             </div>
 
                             <div>
                                 <input type="password" placeholder="Ulangi Kata Sandi" required
-                                className="border rounded-xl w-10/12 py-2 text-center m-3"
+                                className="border rounded-xl w-10/12 py-2 text-center m-2"
                                 value={confirmPassword}
                                 onChange={(e) => setConfirmPassword(e.target.value)}/>
                             </div>
 
                             <div>
                                 <input type="number" placeholder="Nomor Telepon" required
-                                className="border rounded-xl w-10/12 py-2 text-center m-3 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                                className="border rounded-xl w-10/12 py-2 text-center m-2 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                                 value={phoneNumber}
                                 onChange={(e) => setPhoneNumber (e.target.value)}/>
                             </div>
 
                             <div className='flex justify-evenly items-center'>
                                 <p>Daftar Sebagai</p>
-                                <select className="select select-bordered rounded-xl border-2 m-3 py-2 w-full max-w-xs text-center"
+                                <select className="select select-bordered rounded-xl border-2 m-2 py-2 w-full max-w-xs text-center"
                                     required
                                     value={userType}
                                     onChange={(e) => setUserType(e.target.value)}>
