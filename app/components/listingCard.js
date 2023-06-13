@@ -15,7 +15,7 @@ const Card = ({
         <img 
           alt='room' 
           src={image} 
-          className='aspect-video max-w-full rounded-xl' 
+          className='aspect-video object-cover max-w-full rounded-xl' 
           width={300} height={200} />
       </div>
       
