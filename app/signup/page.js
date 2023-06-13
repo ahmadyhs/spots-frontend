@@ -60,7 +60,7 @@ const Signup = () => {
                 </div>
 
                 <div className="bg-white right flex flex-col justify-evenly"> 
-                    <div className="text-center py-10 text-black"> 
+                    <div className="text-center py-5 text-black"> 
 
                         <h1 className="text-xl font-bold mb-2">Registrasi Akun</h1>
                         <p>Isi data diri Anda!</p>
@@ -121,7 +121,7 @@ const Signup = () => {
                                 </select>
                             </div>
                             
-                            <button type='submit' className="bg-blue-950 text-white rounded-2xl py-3 px-20 font-bold m-5">Daftar Akun</button>    
+                            <button type='submit' className="bg-blue-950 text-white hover:bg-blue-400 active:bg-green-400 rounded-2xl py-3 px-20 font-bold mx-5 mt-3">Daftar Akun</button>    
                         </form>
                     </div>
                 </div>

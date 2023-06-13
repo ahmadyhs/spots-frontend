@@ -101,20 +101,15 @@ const ListTransaksi = () => {
                         )
                     })}
                         
-                    {isDataFetched  && (transactionResult.length === 0)  &&
-                        <tr >
-                            <td></td>
-                            <td></td>
-                            <td className='px-2'>
-                                Anda belum pernah melakukan transaksi
-                            </td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                     }
                 </tbody>
             </table>
         </div>
+        {isDataFetched  && (transactionResult.length === 0)  &&
+            <p className='px-2 text-center text-black'>
+                Anda belum pernah melakukan transaksi
+            </p>
+        
+        }
         </div>
     )
 }

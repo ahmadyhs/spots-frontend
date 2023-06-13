@@ -118,10 +118,10 @@ const AdminPenyedia = () => {
             </div>
 
             <div className='justify-center h-8/12 block overflow-x-scroll'>
-                <table className="m-10 w-11/12 h-fit"> 
+                <table className="mx-10 mt-10 w-11/12 h-fit"> 
                     <thead className='border-[#3C4158] border-2 flex w-full'>
                         <tr className="bg-[#3C4158] items-center text-center flex w-full">
-                            <th className="p-2 w-6">ID</th>
+                            <th className="p-2 w-10">ID</th>
                             <th className="p-2 w-20">Nama Depan</th>
                             <th className="p-2 w-20">Nama Belakang</th>
                             <th className="p-2 w-52">Email</th>
@@ -134,12 +134,12 @@ const AdminPenyedia = () => {
                         </tr>
                     </thead>
 
-                    <tbody className='text-black border-[#3C4158] border-2 h-[70vh] flex flex-col overflow-y-scroll w-full'>
+                    <tbody className='text-black border-[#3C4158] border-2 h-[67vh] flex flex-col overflow-y-scroll w-full'>
                         {isDataFetched && ownersResult &&
                             ownersResult.map(owners =>{
                             return(
                                 <tr className='flex w-full' key={owners.owner_id}>
-                                    <td className='p-2 w-6 border border-black'>{owners.owner_id}</td>
+                                    <td className='p-2 w-10 border border-black'>{owners.owner_id}</td>
                                     <td className='p-2 w-20 overflow-auto border border-black'>{owners.user.first_name}</td>
                                     <td className='p-2 w-20 overflow-auto border border-black'>{owners.user.last_name}</td>
                                     <td className='p-2 w-52 overflow-auto border border-black'>{owners.user.email}</td>

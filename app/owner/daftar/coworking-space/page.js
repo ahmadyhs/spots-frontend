@@ -86,7 +86,7 @@ const AddCoworkingSpace = () => {
 
     return (
         <main className="md:col-span-6 col-span-8 bg-white max-h-screen">
-            <form className="block"
+            <form className="block h-screen overflow-auto"
                 onSubmit={
                     e => {
                         e.preventDefault();
