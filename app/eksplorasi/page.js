@@ -4,11 +4,13 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Navbar from '../Navbar';
 import Card from '../components/listingCard'
+import { toast } from 'react-hot-toast';
 
 const Eksplorasi = () => {
   // const router = useRouter();
   
   const [spaceResult, setSpaceResult] = useState(null);
+  const [isFetchFailed, setIsFetchFailed] = useState(false); 
   const [keyWord, setKeyWord] = useState('');
 
   useEffect(() => {
@@ -32,7 +34,9 @@ const Eksplorasi = () => {
 
     getData()
       .catch(error => {
-        console.log('error', error);
+        console.log('error', error.message);
+        toast.error(error.message);
+        setIsFetchFailed(true);
       });
   },[])
 
@@ -97,6 +101,9 @@ const Eksplorasi = () => {
           )
         })
       }
+
+      {isFetchFailed && 
+      <div className='text-black text-center'>Server Unreachable</div>}
     </div>
   )
 }

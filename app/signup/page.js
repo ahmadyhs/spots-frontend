@@ -36,8 +36,12 @@ const Signup = () => {
             } else toast.error(parsedRes.message);
         })
         .catch(error => {
-            console.log('error', error)
-            toast.error('Daftar akun gagal');
+            console.log('error', error.message);
+            if(error.message === 'Failed to fetch'){
+                toast.error('Server Unreachable');
+            } else {
+                toast.error('Daftar akun gagal');
+            }
         });
     }
 

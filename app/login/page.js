@@ -37,8 +37,12 @@ const Login = () => {
       } else toast.error(parsedRes.message);
     })
     .catch(error => {
-      console.log('error', error);
-      toast.error('Akun atau password salah');
+      console.log('error', error.message);
+      if(error.message === 'Failed to fetch'){
+        toast.error('Server Unreachable');
+      } else {
+        toast.error('Akun atau password salah');
+      }
     });
   }
 
